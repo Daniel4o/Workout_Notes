@@ -12,7 +12,7 @@ const workoutVolumeRouter = require('./routes/workoutVolumeRoute')
 
 app.use(cors());
 app.use(express.json());
-app.use('/me', myInfoRouter);
+app.use('/my-info', myInfoRouter);
 app.use('/categories', categoriesRouter);
 app.use('/exercises', exerciseRouter);
 app.use('/workouts', workoutsRouter);

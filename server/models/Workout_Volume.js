@@ -45,53 +45,7 @@ const workoutVolume = (sequelize, DataTypes) => {
             freezeTableName: true,
         },
     )
-    Workout_Volume.associate = models => {
-        Workout_Volume.belongsTo(models.workouts,{
-           foreignKey: "workout_Id",
-           as: "workoutId",
-           soruceKey: "id" 
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseOne',
-            soruceKey: "exercise_one"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseTwo',
-            soruceKey: "exercise_two"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseThree',
-            soruceKey: "exercise_three"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseFour',
-            soruceKey: "exercise_four"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseFive',
-            soruceKey: "exercise_five"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseSix',
-            soruceKey: "exercise_six"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseSeven',
-            soruceKey: "exercise_seven"
-        })
-        Workout_Volume.belongsTo(models.workouts, {
-            foreignKey: "exercise_id",
-            as: 'exerciseEight',
-            soruceKey: "exercise_eight"
-        })
-    }
+    
     Workout_Volume.sync()
     return Workout_Volume
 }

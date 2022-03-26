@@ -15,10 +15,6 @@ exports.getMyLatestInfo = async (req, res) => {
         const me = await MyInfo.findAll({
             order: [['date', 'DESC']],
             raw: true,
-            include: [{
-                model: models.workouts,
-                as: "workouts"
-            }]
         })
         return res.status(200).send(me)
     } catch (error) {

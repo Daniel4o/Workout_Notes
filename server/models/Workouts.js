@@ -46,56 +46,15 @@ const workout = (sequelize, DataTypes) => {
         {
             timestamps: false,
             freezeTableName: true,
-      
-        })
-        Workout.associate = models => {
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_one",
-                through: 'exerciseOne',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_two",
-                through: 'exercisTwo',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_three",
-                through: 'exerciseThree',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_four",
-                through: 'exerciseFour',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_five",
-                through: 'exerciseFive',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_six",
-                through: 'exerciseSix',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_seven",
-                through: 'exerciseSeven',
-                targetKey: "id"
-            })
-            Workout.belongsToMany(models.exercises, {
-                foreignKey: "exercise_eight",
-                through: 'exerciseEight',
-                targetKey: "id"
-            })
-            Workout.belongsTo(models.workout_volume, {
-                foreignKey:"id",
-                targetKey: "workout_id",
-                through: "workout_volume"
-            })
-        }
 
+        })
+    Workout.associate = models => {
+        Workout.belongsTo(models.workout_volume, {
+            foreignKey: "id",
+            targetKey: "workout_id",
+            as: "workoutVolume"
+        })
+    }
     Workout.sync()
     return Workout
 }
