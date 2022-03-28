@@ -1,16 +1,60 @@
 .layout {
-    background: blue;
     width: 100%;
     height: 100vh;
 }
 
 .drawer {
-    width: 240
+    width: 20
+}
+
+.drawerPaper {
+    width: 240;
 }
 
 .root {
     display:flex
 }
+
+.page {
+    background: #f9f9f9;
+    width: 100%;
+    padding: 24
+  }
+
+
+  .active {
+      background: #f4f4f4
+  }
+
+  .title {
+      padding: 16,
+  }
+
+  .appBar {
+      margin-left: 10rem;
+  }
+
+ 
+
+  .date {
+      margin-right:50rem;
+}
+
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    margin-top: 10rem;
+}
+
+h2 {
+    left:50%
+}
+
+
+
+
+
 
 
 

@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 
-const useFormAddCategory = () => {
+const useFormEditCategory = () => {
     const BASE_URL = process.env.REACT_APP_URL
 
-    const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
+    const [categoryName, setCategoryName] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(async () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        getCategories();
+        getCategoryName();
+    }, [BASE_URL])
+
+    const getCategories = async () => {
         try {
             const response = await fetch(`${BASE_URL}/categories`)
             return response.json()
@@ -24,10 +32,25 @@ const useFormAddCategory = () => {
             setError(error)
             setIsLoading(false)
         }
-    }, [BASE_URL]);
+    }
+
+    const getCategoryName = async () => {
+        try {
+            const response = await fetch(`${BASE_URL}/categories/${id}`)
+            return response.json()
+                .then(data => {
+                    setCategoryName(data.category_name)
+                    setError(null)
+                    setIsLoading(false)
+                })
+        } catch (error) {
+            setError(error)
+            setIsLoading(false)
+        }
+    }
 
     const initialValues = {
-        category_name: "",
+        category_name: categoryName,
     };
 
     const validationSchema = Yup.object().shape({
@@ -37,7 +60,7 @@ const useFormAddCategory = () => {
 
     const onSubmit = (data) => {
         fetch(`${BASE_URL}/categories`, {
-            method: "POST",
+            method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
         }).then(() => {
@@ -45,7 +68,7 @@ const useFormAddCategory = () => {
         })
     }
 
-    return { initialValues, validationSchema, error, isLoading, onSubmit }
+    return { initialValues, validationSchema, error, isLoading, onSubmit, categoryName }
 }
 
-export default useFormAddCategory
+export default useFormEditCategory

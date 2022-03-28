@@ -1,21 +1,29 @@
 import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
-import useFormAddMyInfo from './useFormAddMyInfo';
-import * as React from 'react';
 import { TextField, Grid, Button } from '@mui/material';
+import useFormEditMyInfo from './useFormEditMyInfo';
 
-const AddMyInfo = (submitForm) => {
-    const { initialValues, validationSchema, error, onSubmit } = useFormAddMyInfo(submitForm)
+const EditMyInfo = (submitForm) => {
+    const { initialValues, validationSchema, error, isLoading,  onSubmit } = useFormEditMyInfo(submitForm)
+
+    if (isLoading) {
+        return <div>Loading...</div>
+    }
+    if (error) {
+        return <div>There was an error: {error}</div>
+    }
 
     return (
         <div>
         <Formik
+            enableReinitialize
             initialValues={initialValues}
             onSubmit={onSubmit}
             validationSchema={validationSchema}
         >
-            {({ values, errors, touched, handleBlur, handleChange, handleSubmit }) => (
+            {({ values, errors, touched,  handleChange, handleSubmit }) => (
                 <Form onSubmit={handleSubmit}>
+                    <div style={{minHeight:"100%"}}></div>
                     <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
                         <TextField
                             label="Name"
@@ -77,4 +85,4 @@ const AddMyInfo = (submitForm) => {
     );
 }
 
-export default AddMyInfo
+export default EditMyInfo
