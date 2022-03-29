@@ -1,6 +1,6 @@
 import { Link, } from "react-router-dom";
 import useFormMyInfo from "./useFormMyInfo";
-import { Button, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar } from "@mui/material";
+import { Button, Divider, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar } from "@mui/material";
 import { WorkOutlineOutlined, WorkIcon } from '@mui/icons-material';
 
 const MyInfo = () => {
@@ -18,25 +18,26 @@ const MyInfo = () => {
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
             <h2>About Me:</h2>
             <ListItem>
-            <Box component="span" sx={{ p: 2, border: '1px dashed grey' }}>
                 <ListItemAvatar >
                     <Avatar><WorkOutlineOutlined /></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="User" secondary={name} />
-            </Box>
             </ListItem>
+            <Divider />
             <ListItem>
                 <ListItemAvatar >
                     <Avatar><WorkOutlineOutlined /></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Age" secondary={age} />
             </ListItem>
+            <Divider />
             <ListItem>
                 <ListItemAvatar >
                     <Avatar><WorkOutlineOutlined /></Avatar>
                 </ListItemAvatar>
                 <ListItemText primary="Height" secondary={height} />
             </ListItem>
+            <Divider />
             <ListItem>
                 <ListItemAvatar >
                     <Avatar><WorkOutlineOutlined /></Avatar>

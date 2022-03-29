@@ -59,7 +59,7 @@ const useFormEditCategory = () => {
     });
 
     const onSubmit = (data) => {
-        fetch(`${BASE_URL}/categories`, {
+        fetch(`${BASE_URL}/categories/${id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
@@ -68,7 +68,7 @@ const useFormEditCategory = () => {
         })
     }
 
-    return { initialValues, validationSchema, error, isLoading, onSubmit, categoryName }
+    return { initialValues, validationSchema, error, isLoading, onSubmit }
 }
 
 export default useFormEditCategory

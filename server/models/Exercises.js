@@ -24,6 +24,14 @@ const exercise = (sequelize, DataTypes) => {
         },
     )
    
+    Exercise.associate = models => {
+        Exercise.belongsTo(models.categories, {
+            foreignKey: "category_id",
+            targetKey: "id",
+            as: "exerciseCategories"
+        })
+    }
+
     Exercise.sync()
     return Exercise
 }

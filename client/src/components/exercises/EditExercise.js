@@ -1,9 +1,10 @@
+import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
-import { TextField, Grid } from '@mui/material';
-import useFormEditCategory from './useFormEditCategory';
+import { TextField, Grid, Button } from '@mui/material';
+import useFormEditExercise from './useFormEditExercise';
 
-const EditCategory = (submitForm) => {
-    const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormEditCategory(submitForm)
+const EditExercise = (submitForm) => {
+    const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormEditExercise(submitForm)
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -42,4 +43,4 @@ const EditCategory = (submitForm) => {
     )
 }
 
-export default EditCategory
+export default EditExercise

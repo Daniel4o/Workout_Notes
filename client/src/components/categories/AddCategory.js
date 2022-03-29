@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
 import { TextField, Grid, Button } from '@mui/material';
-import useFormAddCategory from './useFormEditMyInfo';
+import useFormAddCategory from './useFormAddCategory';
 
 const AddCategory = (submitForm) => {
     const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormAddCategory(submitForm)
@@ -16,7 +16,7 @@ const AddCategory = (submitForm) => {
     return (
         <div>
             <Formik
-                enableReinitialize
+                
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
@@ -41,5 +41,6 @@ const AddCategory = (submitForm) => {
             </Formik>
         </div>
     )
-
 }
+
+export default AddCategory

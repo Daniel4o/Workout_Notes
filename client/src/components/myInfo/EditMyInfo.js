@@ -14,7 +14,7 @@ const EditMyInfo = (submitForm) => {
     }
 
     return (
-        <div>
+        <Grid item xs={8}>
         <Formik
             enableReinitialize
             initialValues={initialValues}
@@ -81,7 +81,7 @@ const EditMyInfo = (submitForm) => {
                 </Form>
             )}
         </Formik>
-        </div>
+        </Grid>
     );
 }
 

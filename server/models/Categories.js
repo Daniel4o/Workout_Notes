@@ -17,6 +17,14 @@ const category = (sequelize, DataTypes) => {
         },
     )
 
+    Category.associate = models => {
+        Category.belongsTo(models.exercises, {
+            foreignKey: "id",
+            targetKey: "category_id",
+            as: "categoryExercises"
+        })
+    }
+    
     Category.sync()
     return Category
 }
