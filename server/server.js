@@ -4,7 +4,7 @@ const mysql = require('mysql2')
 const cors = require('cors')
 require('dotenv/config')
 
-const myInfoRouter = require('./routes/myInfoRoute')
+const usersRouter = require('./routes/usersRoute')
 const categoriesRouter = require('./routes/categoriesRoute')
 const exerciseRouter = require('./routes/exercisesRoute')
 const workoutsRouter = require('./routes/workoutsRoute')
@@ -12,7 +12,7 @@ const workoutVolumeRouter = require('./routes/workoutVolumeRoute')
 
 app.use(cors());
 app.use(express.json());
-app.use('/my-info', myInfoRouter);
+app.use('/users', usersRouter);
 app.use('/categories', categoriesRouter);
 app.use('/exercises', exerciseRouter);
 app.use('/workouts', workoutsRouter);

@@ -7,6 +7,7 @@ const useFormExercises = () => {
     const [error, setError] = useState(null);
     const [categories, setCategories] = useState([]);
     const [deletedCategories, setDeletedCategories] = useState([]);
+    const [exercises, setExercises] = useState([]);
 
     useEffect(async () => {
         getCategories();
@@ -18,6 +19,7 @@ const useFormExercises = () => {
             const response = await fetch(`${BASE_URL}/exercises`)
             return response.json()
                 .then(data => {
+                    setExercises(data.categoryExists)
                     setDeletedCategories(data.deletedCategories)
                     setError(null)
                     setIsLoading(false)
@@ -44,7 +46,7 @@ const useFormExercises = () => {
         }
     }
 
-    return {  deletedCategories, error, isLoading, categories }
+    return {  deletedCategories, error, isLoading, categories, exercises }
 
 }
 

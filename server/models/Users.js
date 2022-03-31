@@ -1,8 +1,8 @@
-const myInfo = (sequelize, DataTypes) => {
-    const MyInfo = sequelize.define(
-        'my_info', {
+const users = (sequelize, DataTypes) => {
+    const Users = sequelize.define(
+        'users', {
         name: {
-            type: DataTypes.STRING(), allowNull: false,
+            type: DataTypes.STRING(), allowNull: false, unique: true,
             validate: {
                 len: [3, 20],
                 notNull: { msg: "You need to provide name!" }
@@ -31,12 +31,6 @@ const myInfo = (sequelize, DataTypes) => {
                 max: 200,
                 notNull: { msg: "You need to provide weight!" }
             }
-        },
-        date: {
-            type: DataTypes.DATEONLY, allowNull: false,
-            validate: {
-                notNull: { msg: "You need to provide date !" }
-            }
         }
     },
         {
@@ -44,10 +38,16 @@ const myInfo = (sequelize, DataTypes) => {
             freezeTableName: true,
         })
 
-    MyInfo.sync()
-    return MyInfo
+        Users.associate = models => {
+            Users.hasMany(models.workouts, {
+                targetKey: "user_id",
+                as: "workouts"
+            })
+        }
+    Users.sync()
+    return Users
 }
 
-module.exports = myInfo
+module.exports = users
 
 

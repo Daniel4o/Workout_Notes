@@ -1,6 +1,13 @@
 const workout = (sequelize, DataTypes) => {
     const Workout = sequelize.define(
         'workouts', {
+            user_id: {
+                type: DataTypes.INTEGER, allowNull: false,
+                references: { model: "my_info", key: "id" },
+                validate: {
+                    notNull: { msg: "You need to provide user_id !" }
+                }
+            },
         exercise_one: {
             type: DataTypes.INTEGER(), allowNull: false,
             references: { model: "exercises", key: "id" },

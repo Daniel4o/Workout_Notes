@@ -1,8 +1,10 @@
 import useFormExercises from "./useFormExercises";
-import { List, ListItem, ListItemText, ListSubheader } from '@mui/material';
+import { List, ListItem, ListItemText, Button, IconButton, Grid, Typography } from '@mui/material';
+import {Delete, Folder} from '@mui/icons-material';
+import {Link} from 'react-router-dom';
 
 const Exercises = () => {
-    const { categories, deletedCategories, error, isLoading } = useFormExercises()
+    const { categories, deletedCategories, error, isLoading, exercises } = useFormExercises()
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -12,29 +14,26 @@ const Exercises = () => {
     }
 
     return (
-        <List
-            sx={{
-                width: '100%',
-                maxWidth: 360,
-                bgcolor: 'background.paper',
-                position: 'relative',
-                overflow: 'auto',
-                maxHeight: 300,
-                '& ul': { padding: 0 },
-            }}
-            subheader={<li />}
-        >
-            {categories.map((exercise) => (
-                <li key={exercise['categoryExercises.exercise_name']}>
-                    <ul>
-                        <ListSubheader>{exercise.category_name}</ListSubheader>
-                            <ListItem key={exercise['categoryExercises.exercise_name']}>
-                                <ListItemText primary={exercise['categoryExercises.exercise_name']} />
+        <Grid>
+        <List>
+            {exercises.map(exercise => (
+                <ul>
+                            <ListItem secondaryAction={
+                                <IconButton edge="end" aria-label="delete">
+                     <Delete/>
+                    </IconButton>
+                  }>
+                     <Button ><Link to={`/exercises/edit/${exercise.id}`}>
+                      <Folder />
+                     </Link>
+                        </Button> 
+
+                                <ListItemText primary={exercise.exercise_name} />
                             </ListItem>
                     </ul>
-                </li>
             ))}
         </List>
+                </Grid>
     )
 }
 

@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Grid} from '@mui/material'
-import EditMyInfo from './components/myInfo/EditMyInfo';
-import MyInfo from './components/myInfo/MyInfo';
+import EditMyInfo from './components/myInfo/EditUser';
+import MyInfo from './components/myInfo/Users';
 import Layout from './components/Layout/Layout';
 import Categories from './components/categories/Categories';
 import AddCategory from './components/categories/AddCategory';
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route exact='/' />
           <Route path='/my-info' element={<MyInfo />} />
-          <Route path='/my-info/edit' element={<EditMyInfo />} />
+          <Route path='/my-info/edit/:id' element={<EditMyInfo />} />
           <Route path= '/categories' element={<Categories />}/>
           <Route path= '/categories/add' element={<AddCategory />}/>
           <Route path= '/categories/edit/:id' element={<EditCategory />}/>

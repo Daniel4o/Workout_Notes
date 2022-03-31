@@ -22,7 +22,7 @@ const useFormAddExercise = () => {
             const response = await fetch(`${BASE_URL}/exercises`)
             return response.json()
                 .then(data => {
-                    const exercise = data.map(exercises => exercises.exercise_name).flat();
+                    const exercise = data.exercises.map(exercises => exercises.exercise_name).flat();
                     setExercises(exercise)
                     setError(null)
                     setIsLoading(false)

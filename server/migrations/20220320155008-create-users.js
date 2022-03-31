@@ -2,15 +2,16 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('my_info', {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
+        references: { model: "workouts", key: "user_id" },
       },
       name: {
-        type: Sequelize.STRING, allowNull: false,
+        type: Sequelize.STRING, allowNull: false, unique: true,
         validate: {
           len: [3, 20],
           notNull: { msg: "You need to provide name!" }
@@ -40,12 +41,7 @@ module.exports = {
           notNull: { msg: "You need to provide weight!" }
         }
       },
-      date: {
-        type: Sequelize.DATEONLY, allowNull: false,
-        validate: {
-          notNull: { msg: "You need to provide date !" }
-        }
-      }
+
     }),
     {
       timestamps: false,
@@ -54,6 +50,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('my_info')
+    await queryInterface.dropTable('users')
   }
 };

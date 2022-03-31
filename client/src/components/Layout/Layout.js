@@ -1,5 +1,5 @@
 import './Layout.css';
-import { Drawer, Typography, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar } from '@mui/material';
+import { Drawer, Typography, Box, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { menuItems } from './menuItems';
@@ -61,8 +61,9 @@ export default function Layout({ children }) {
 
                 </List>
             </Drawer>
-            <div className='toolbar'></div>
+            <Box>
             {children}
+            </Box>
         </div>
     )
 }

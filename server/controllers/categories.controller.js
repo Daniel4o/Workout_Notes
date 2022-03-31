@@ -17,7 +17,7 @@ exports.getCategories = async (req, res) => {
             include: [{
                 model: models.exercises,
                 as: "categoryExercises",
-                attributes: ["exercise_name"]
+                attributes: ["exercise_name", "id"]
             }]
         })
         
@@ -30,10 +30,13 @@ exports.getCategories = async (req, res) => {
             if (existing.length) {
                 var existingIndex = output.indexOf(existing[0]);
                 output[existingIndex]['categoryExercises.exercise_name'] = output[existingIndex]['categoryExercises.exercise_name'].concat(item['categoryExercises.exercise_name']);
+                output[existingIndex]['categoryExercises.id'] = output[existingIndex]['categoryExercises.id'].concat(item['categoryExercises.id']);
+
             } else {
                 if (typeof item['categoryExercises.exercise_name'] == 'string')
                     item['categoryExercises.exercise_name'] = [item['categoryExercises.exercise_name']];
-                output.push(item);
+                    item['categoryExercises.id'] = [item['categoryExercises.id']];
+                    output.push(item);
             }
         });
         return res.status(200).send(output)

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useFormMyInfo = () => {
+const useFormUsers = () => {
     const BASE_URL = process.env.REACT_APP_URL
 
     const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +13,7 @@ const useFormMyInfo = () => {
 
     useEffect(async () => {
         try {
-            const response = await fetch(`${BASE_URL}/my-info`)
+            const response = await fetch(`${BASE_URL}/users`)
             return response.json()
                 .then(data => {
                     data.map(me=> {
@@ -36,4 +36,4 @@ const useFormMyInfo = () => {
     return { error, isLoading, name, age, weight, height }
 }
 
-export default useFormMyInfo
+export default useFormUsers

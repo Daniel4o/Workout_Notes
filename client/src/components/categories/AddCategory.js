@@ -15,8 +15,7 @@ const AddCategory = (submitForm) => {
 
     return (
         <div>
-            <Formik
-                
+            <Formik   
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}

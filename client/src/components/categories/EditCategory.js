@@ -22,7 +22,6 @@ const EditCategory = (submitForm) => {
             >
                 {({ values, errors, touched, handleChange, handleSubmit }) => (
                     <Form onSubmit={handleSubmit}>
-                        <div style={{ minHeight: "100%" }}></div>
                         <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
                             <TextField
                                 label=" Category name"

@@ -1,10 +1,10 @@
 import { Link, } from "react-router-dom";
-import useFormMyInfo from "./useFormMyInfo";
+import useFormUsers from "./useFormUsers";
 import { Button, Divider, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar } from "@mui/material";
 import { WorkOutlineOutlined, WorkIcon } from '@mui/icons-material';
 
-const MyInfo = () => {
-    const { error, isLoading, name, age, weight, height } = useFormMyInfo()
+const Users = () => {
+    const { error, isLoading, name, age, weight, height } = useFormUsers()
 
     if (isLoading) {
         return (<Grid>Loading...</Grid>)
@@ -49,4 +49,4 @@ const MyInfo = () => {
     )
 }
 
-export default MyInfo
+export default Users

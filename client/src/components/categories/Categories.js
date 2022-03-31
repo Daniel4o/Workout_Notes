@@ -20,11 +20,10 @@ const Categories = () => {
   }
 
   return (
-    <Grid item xs={8}>
+    <Grid>
       {categories.map(category => {
         const { id, category_name,  } = category
         const string=category['categoryExercises.exercise_name'].join(',\n')
-       console.log(string)
         return (
           <Accordion
             key={id}
@@ -39,7 +38,7 @@ const Categories = () => {
               <Typography sx={{ width: '33%', flexShrink: 0 }}>
                 {category_name}
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>Exercises:</Typography>
+              <Typography sx={{ color: 'text.secondary' }}> Exercises:</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>

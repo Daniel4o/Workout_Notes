@@ -9,6 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      user_id: {
+        type: Sequelize.INTEGER, allowNull: false,
+        references: { model: "my_info", key: "id" },
+        validate: {
+            notNull: { msg: "You need to provide user_id !" }
+        }
+    },
       exercise_one: {
         type: Sequelize.INTEGER, allowNull: false,
         references: { model: "exercises", key: "id" },
