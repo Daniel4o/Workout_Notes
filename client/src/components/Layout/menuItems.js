@@ -8,7 +8,7 @@ export const menuItems = [
     {
         text: "My Notes",
         icon: <PersonOutlineOutlinedIcon color='secondary' />,
-        path: '/my-info'
+        path: '/users'
     },
     {
         text: "Workout",

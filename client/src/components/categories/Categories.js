@@ -20,7 +20,7 @@ const Categories = () => {
   }
 
   return (
-    <Grid>
+    <Grid container sx={{m:8}}>
       {categories.map(category => {
         const { id, category_name,  } = category
         const string=category['categoryExercises.exercise_name'].join(',\n')

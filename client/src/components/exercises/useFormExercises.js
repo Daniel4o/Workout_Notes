@@ -5,6 +5,8 @@ const useFormExercises = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showCategories, setShowCategories] = useState(false);
+
     const [categories, setCategories] = useState([]);
     const [deletedCategories, setDeletedCategories] = useState([]);
     const [exercises, setExercises] = useState([]);

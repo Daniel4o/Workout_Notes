@@ -8,7 +8,6 @@ export default function Layout({ children }) {
     const navigate = useNavigate();
     const location = useLocation();
 
-
     return (
         <div className='root'>
             <AppBar
@@ -28,16 +27,12 @@ export default function Layout({ children }) {
                 </Toolbar>
             </AppBar>
             <Drawer
-                className='drawer'
-                variant='permanent'
-                anchor='left'
-                sx={{
-                    width: 240,
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
+                className='drawer' variant='permanent'  anchor='left'
+                sx={{ width: 240,flexShrink: 0, '& .MuiDrawer-paper': 
+                    {
                         width: 240,
                         boxSizing: 'border-box',
-                        
+
                     },
                 }}
             >
@@ -58,11 +53,10 @@ export default function Layout({ children }) {
                             <ListItemText primary={item.text} />
                         </ListItem>
                     ))}
-
                 </List>
             </Drawer>
             <Box>
-            {children}
+                {children}
             </Box>
         </div>
     )

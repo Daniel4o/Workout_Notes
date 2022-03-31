@@ -8,7 +8,6 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        references: { model: "workouts", key: "user_id" },
       },
       name: {
         type: Sequelize.STRING, allowNull: false, unique: true,

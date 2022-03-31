@@ -40,6 +40,7 @@ const users = (sequelize, DataTypes) => {
 
         Users.associate = models => {
             Users.hasMany(models.workouts, {
+                foreignKey: "id",
                 targetKey: "user_id",
                 as: "workouts"
             })

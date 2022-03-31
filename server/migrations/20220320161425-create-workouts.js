@@ -11,7 +11,7 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER, allowNull: false,
-        references: { model: "my_info", key: "id" },
+        references: { model: "users", key: "id" },
         validate: {
             notNull: { msg: "You need to provide user_id !" }
         }

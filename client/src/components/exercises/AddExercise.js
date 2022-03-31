@@ -49,6 +49,7 @@ const AddExercise = (submitForm) => {
                                     )}
                                 </Select>
                             </FormControl>
+                            <Button color="primary" variant="contained" type="submit">Submit</Button>
                         </Grid>
                     </Form>
                 )}

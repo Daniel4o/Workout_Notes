@@ -14,8 +14,8 @@ const AddCategory = (submitForm) => {
     }
 
     return (
-        <div>
-            <Formik   
+        <Grid container xs={{ m: 8 }}>
+            <Formik
                 initialValues={initialValues}
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
@@ -34,11 +34,12 @@ const AddCategory = (submitForm) => {
                                 error={touched.category_name && Boolean(errors.category_name)}
                                 helperText={touched.category_name && errors.category_name}
                             />
+                            <Button color="primary" variant="contained" type="submit">Submit</Button>
                         </Grid>
                     </Form>
                 )}
             </Formik>
-        </div>
+        </Grid>
     )
 }
 

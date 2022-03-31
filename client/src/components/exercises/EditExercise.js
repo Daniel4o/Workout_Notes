@@ -34,23 +34,24 @@ const EditExercise = (submitForm) => {
                                 error={touched.exercise_name && Boolean(errors.exercise_name)}
                                 helpertext={touched.exercise_name && errors.exercise_name}
                             />
-                        <FormControl variant="standard" fullWidth>
-                        <InputLabel>Category</InputLabel>
-                            <Select
-                            label= "Category"
-                            id="category_name"
-                            name= "category_name"
-                            variant="standard"
-                            value={values.category_name}
-                            onChange={handleChange}
-                            error={touched.category_name && Boolean(errors.category_name)}
-                            helpertext={touched.category_name && errors.category_name}
-                            >
-                                {categoryNames.map((id) =>
-                                <MenuItem value={id}>{id}</MenuItem>
-                                )}
-                            </Select>
-                                </FormControl>
+                            <FormControl variant="standard" fullWidth>
+                                <InputLabel>Category</InputLabel>
+                                <Select
+                                    label="Category"
+                                    id="category_name"
+                                    name="category_name"
+                                    variant="standard"
+                                    value={values.category_name}
+                                    onChange={handleChange}
+                                    error={touched.category_name && Boolean(errors.category_name)}
+                                    helpertext={touched.category_name && errors.category_name}
+                                >
+                                    {categoryNames.map((id) =>
+                                        <MenuItem value={id}>{id}</MenuItem>
+                                    )}
+                                </Select>
+                            </FormControl>
+                            <Button color="primary" variant="contained" type="submit">Submit</Button>
                         </Grid>
                     </Form>
                 )}

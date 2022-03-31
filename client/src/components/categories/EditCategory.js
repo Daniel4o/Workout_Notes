@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { TextField, Grid } from '@mui/material';
+import { TextField, Grid, Button } from '@mui/material';
 import useFormEditCategory from './useFormEditCategory';
 
 const EditCategory = (submitForm) => {
@@ -33,6 +33,7 @@ const EditCategory = (submitForm) => {
                                 error={touched.category_name && Boolean(errors.category_name)}
                                 helperText={touched.category_name && errors.category_name}
                             />
+                            <Button color="primary" variant="contained" type="submit">Submit</Button>
                         </Grid>
                     </Form>
                 )}
