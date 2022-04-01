@@ -1,5 +1,5 @@
 import './Layout.css';
-import { Drawer, Typography, Box, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar } from '@mui/material';
+import { Drawer, Typography, Box, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Card, Grid } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { menuItems } from './menuItems';
@@ -27,12 +27,12 @@ export default function Layout({ children }) {
                 </Toolbar>
             </AppBar>
             <Drawer
-                className='drawer' variant='permanent'  anchor='left'
-                sx={{ width: 240,flexShrink: 0, '& .MuiDrawer-paper': 
+                className='drawer' variant='permanent' anchor='left'
+                sx={{
+                    width: 240, flexShrink: 0, '& .MuiDrawer-paper':
                     {
                         width: 240,
                         boxSizing: 'border-box',
-
                     },
                 }}
             >

@@ -10,12 +10,13 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import  ListItemIcon  from '@mui/material/ListItemIcon';
 import  ListItem  from '@mui/material/ListItem';
 import useFormUsers from './useFormUsers';
-import { useNavigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
 
 const Users = () => {
     const { users, error, deleteUser, isLoading } = useFormUsers();
-    const navigate = useNavigate();
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -25,12 +26,12 @@ const Users = () => {
     }
 
     return (
-        <Grid container sx={{m:8}}>
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+<Grid  sx={{ mt:6, m:8 }} className='content'>
+        <Card sx={{width:1000}}>             
+        <Table >
                 <TableHead>
                     <TableRow>
-                        <TableCell align="center" colSpan={3}>
+                        <TableCell align="center" colSpan={6}>
                             Users
                         </TableCell>
                     </TableRow>
@@ -48,13 +49,13 @@ const Users = () => {
                         <TableRow key={user.id}>
                             <TableCell>
                             <ListItem
-                            button
                             key={user.id}
-                            onClick={() => navigate(`/users/${user.id}`)}
                         >
+                                <Button href={`/users/${user.id}`}>
                                 <ListItemIcon>
                                 <PersonOutlineIcon />
                                 </ListItemIcon>
+                                </Button>
                                 </ListItem>
                                 </TableCell>
                             <TableCell>{user.name}</TableCell>
@@ -77,8 +78,8 @@ const Users = () => {
                     </TableRow>
                 </TableBody>
             </Table>
-        </TableContainer>
-        </Grid>
+</Card>
+            </Grid>          
     );
 }
 
