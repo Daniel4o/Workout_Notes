@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button } from '@mui/material';
+import { TextField, Grid, Button, Card, Typography } from '@mui/material';
 import useFormAddCategory from './useFormAddCategory';
 
 const AddCategory = (submitForm) => {
@@ -14,31 +14,36 @@ const AddCategory = (submitForm) => {
     }
 
     return (
-        <Grid container xs={{ m: 8 }}>
-            <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-            >
-                {({ values, errors, touched, handleChange, handleSubmit }) => (
-                    <Form onSubmit={handleSubmit}>
-                        <div style={{ minHeight: "100%" }}></div>
-                        <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
-                            <TextField
-                                label=" Category name"
-                                id="category_name"
-                                name="category_name"
-                                variant="standard"
-                                value={values.category_name}
-                                onChange={handleChange}
-                                error={touched.category_name && Boolean(errors.category_name)}
-                                helperText={touched.category_name && errors.category_name}
-                            />
-                            <Button color="primary" variant="contained" type="submit">Submit</Button>
-                        </Grid>
-                    </Form>
-                )}
-            </Formik>
+        <Grid container sx={{ m: 10 }} className='content'>
+            <Card sx={{ maxWidth: 1000 }}>
+                <Grid sx={{ m: 16 }} >
+                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Add Category</Typography>
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {({ values, errors, touched, handleChange, handleSubmit }) => (
+                            <Form onSubmit={handleSubmit} style={{ width: 350 }}>
+                                <Grid container direction="column" justifyContent="space-evenly" alignItems="center" width='300' >
+                                    <TextField
+                                        label=" Category name"
+                                        id="category_name"
+                                        name="category_name"
+                                        variant="standard"
+                                        value={values.category_name}
+                                        onChange={handleChange}
+                                        error={touched.category_name && Boolean(errors.category_name)}
+                                        helperText={touched.category_name && errors.category_name}
+                                    />
+                                    <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
+                                    <Button color="secondary" variant="contained" href={('/categories')}>Cancel</Button>
+                                </Grid>
+                            </Form>
+                        )}
+                    </Formik>
+                </Grid>
+            </Card>
         </Grid>
     )
 }

@@ -55,7 +55,7 @@ const useFormEditCategory = () => {
 
     const validationSchema = Yup.object().shape({
         category_name: Yup.string().required("Category field is required!").min(3, "Category should be atleast 3 characters!").max(20, "Name is too long, maximum is 20 characters!")
-            .notOneOf(categories, 'Category with this name exists!')
+            .notOneOf(categories, 'Category with this name already exists!')
     });
 
     const onSubmit = (data) => {

@@ -12,7 +12,6 @@ export default function Layout({ children }) {
         <div className='root'>
             <AppBar
                 position='fixed'
-                className='appBar'
                 eleveation={0}
                 color='primary'
             >
@@ -21,7 +20,7 @@ export default function Layout({ children }) {
                         Workout Notes
                     </Typography>
                     <div className='date'></div>
-                    <Typography >
+                    <Typography>
                         Today is the {format(new Date(), 'do MMMM Y')}
                     </Typography>
                 </Toolbar>
@@ -30,10 +29,7 @@ export default function Layout({ children }) {
                 className='drawer' variant='permanent' anchor='left'
                 sx={{
                     width: 240, flexShrink: 0, '& .MuiDrawer-paper':
-                    {
-                        width: 240,
-                        boxSizing: 'border-box',
-                    },
+                    {   width: 240,  boxSizing: 'border-box',},
                 }}
             >
                 <div>

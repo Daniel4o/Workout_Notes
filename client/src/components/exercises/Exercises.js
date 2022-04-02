@@ -2,6 +2,7 @@ import useFormExercises from "./useFormExercises";
 import { List, ListItem, ListItemText, Button, IconButton, Grid, Box, Checkbox, FormControlLabel, FormGroup, Divider, Card, Typography } from '@mui/material';
 import { Delete, Folder, Add } from '@mui/icons-material';
 import { useState } from 'react';
+
 const Exercises = () => {
     const { categories, deletedCategories, error, isLoading, exercises } = useFormExercises();
     const [showCategories, setShowCategories] = useState(false);

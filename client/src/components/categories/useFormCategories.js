@@ -6,6 +6,7 @@ const useFormCategories = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [expanded, setExpanded] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const [categories, setCategories] = useState([]);
 
@@ -18,18 +19,40 @@ const useFormCategories = () => {
                     setCategories(data);
                     setError(null)
                     setIsLoading(false)
-            })
-            
+                })
+
         } catch (error) {
             setError(error)
             setIsLoading(false)
         }
     }, [BASE_URL]);
-    
-    const handleClick =(panel) => (event, isExpanded) => {
+
+    const handleClick = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false)
-    };   
-    return { error, isLoading, categories, handleClick, expanded}
+    }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const deleteCategory = async (id) => {
+        try {
+            await fetch(`${BASE_URL}/categories/${id}`, {
+                method: "DELETE",
+            }).then(response => {
+                setCategories(categories.filter(cateogry => cateogry.id !== id))
+                return response.json()
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return { error, isLoading, categories, expanded, handleClick, handleClickOpen, open, handleClose, deleteCategory }
 }
 
 export default useFormCategories
