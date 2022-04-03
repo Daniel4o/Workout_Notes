@@ -1,10 +1,10 @@
 import useFormExercises from "./useFormExercises";
-import { List, ListItem, ListItemText, Button, IconButton, Grid, Box, Checkbox, FormControlLabel, FormGroup, Divider, Card, Typography } from '@mui/material';
-import { Delete, Folder, Add } from '@mui/icons-material';
+import { List, ListItem, ListItemText, Button, IconButton, Grid, Box, Checkbox, FormControlLabel, FormGroup, Divider, Card, Typography, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Delete, Folder, Add, Warning } from '@mui/icons-material';
 import { useState } from 'react';
 
 const Exercises = () => {
-    const { categories, deletedCategories, error, isLoading, exercises } = useFormExercises();
+    const { categories, deletedCategories, error, isLoading, exercises, open, handleClickOpen, handleClose, deleteExercise } = useFormExercises();
     const [showCategories, setShowCategories] = useState(false);
 
     if (isLoading) {
@@ -33,12 +33,12 @@ const Exercises = () => {
                     </Button>
                 </FormGroup>
                 <Divider />
-                <List>
-                    {exercises.map(exercise => (
+                {exercises.map(exercise => (
+                    <List>
                         <ListItem
                             key={exercise.id}
                             secondaryAction={
-                                <IconButton edge="end" aria-label="delete">
+                                <IconButton onClick={handleClickOpen}>
                                     <Delete />
                                 </IconButton>
                             }>
@@ -50,8 +50,30 @@ const Exercises = () => {
                                 secondary={showCategories ? exercise["exerciseCategories.category_name"] : null}
                             />
                         </ListItem>
-                    ))}
-                </List>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                        >
+                            <Box sx={{ borderTop: 3, color: 'red' }}>
+                                <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
+                                    Delete Exercise
+                                </DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText color='black' >
+                                        <Warning fontSize='large' color='error' sx={{ mr: 4, pt: 1 }} />
+                                        Are you sure you want to delete the exercise: {exercise.exercise_name} ?
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions sx={{ backgroundColor: 'gainsboro' }}>
+                                    <Button variant='contained' onClick={() => deleteExercise(exercise.id)} autoFocus>
+                                        Yes
+                                    </Button>
+                                    <Button variant='outlined' onClick={handleClose}>No</Button>
+                                </DialogActions>
+                            </Box>
+                        </Dialog>
+                    </List>
+                ))}
             </Card>
         </Grid>
     )

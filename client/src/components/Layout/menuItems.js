@@ -6,7 +6,7 @@ import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOu
 
 export const menuItems = [
     {
-        text: "My Notes",
+        text: "Users",
         icon: <PersonOutlineOutlinedIcon color='secondary' />,
         path: '/users'
     },

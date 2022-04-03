@@ -6,23 +6,19 @@ const useFormGetUserById = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [open, setOpen] = useState(false);
     const {id} =useParams();
     
-    const [name, setName] = useState([]);
-    const [age, setAge] = useState([]);
-    const [height, setHeight] = useState([]);
-    const [weight, setWeight] = useState([]);
+    const [user, setUser] = useState([]);
+  
 
     useEffect(async () => {
         try {
             const response = await fetch(`${BASE_URL}/users/${id}`)
             return response.json()
                 .then(data => {
-                    data.map(me=> {
-                    setName(me.name);
-                    setAge(me.age);
-                    setHeight(me.height);
-                    setWeight(me.weight);
+                    data.map(user=> {
+                        setUser(user)
                 })
                     setError(null)
                     setIsLoading(false)
@@ -34,8 +30,28 @@ const useFormGetUserById = () => {
         }
     }, [BASE_URL]);
    
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-    return { error, isLoading, name, age, weight, height }
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const deleteUser = async (id) => {
+        try {
+            await fetch(`${BASE_URL}/users/${id}`, {
+                method: "DELETE",
+            }).then(response => {
+                setUser(user.filter(user => user.id !== id))
+                return response.json()
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return { error, isLoading, user, open, handleClickOpen, handleClose, deleteUser  }
 }
 
 export default useFormGetUserById

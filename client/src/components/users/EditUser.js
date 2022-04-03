@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button } from '@mui/material';
+import { TextField, Grid, Button, Card, Typography, FormControl } from '@mui/material';
 import useFormEditUser from './useFormEditUser';
 
 const EditUser = (submitForm) => {
-    const { initialValues, validationSchema, error, isLoading,  onSubmit } = useFormEditUser(submitForm)
+    const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormEditUser(submitForm)
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -14,72 +14,69 @@ const EditUser = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{m:8}}>
-        <Formik
-            enableReinitialize
-            initialValues={initialValues}
-            onSubmit={onSubmit}
-            validationSchema={validationSchema}
-        >
-            {({ values, errors, touched,  handleChange, handleSubmit }) => (
-                <Form onSubmit={handleSubmit}>
-                    <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
-                        <TextField
-                            label="Name"
-                            id="name"
-                            name="name"
-                            variant="standard"
-                            value={values.name}
-                            onChange={handleChange}
-                            error={touched.name && Boolean(errors.name)}
-                            helperText={touched.name && errors.name}
-                        />
-                        <TextField
-                            label="Age"
-                            id="age"
-                            name="age"
-                            variant="standard"
-                            value={values.age}
-                            onChange={handleChange}
-                            error={touched.age && Boolean(errors.age)}
-                            helperText={touched.age && errors.age}
-                        />
-                        <TextField
-                            label="Height"
-                            id="height"
-                            name="height"
-                            variant="standard"
-                            value={values.height}
-                            onChange={handleChange}
-                            error={touched.height && Boolean(errors.height)}
-                            helperText={touched.height && errors.height}
+        <Grid container sx={{ m: 12, ml: 20 }} className='content'>
+            <Card sx={{ maxWidth: 1000 }}>
+                <Grid sx={{ m: 10 }}>
+                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit User</Typography>
+                    <Formik
+                        enableReinitialize
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {({ values, errors, touched, handleChange, handleSubmit }) => (
+                            <Form onSubmit={handleSubmit}>
+                                <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
+                                    <FormControl variant="standard" fullWidth>
+                                        <TextField
+                                            label="Name"
+                                            id="name"
+                                            name="name"
+                                            variant="standard"
+                                            value={values.name}
+                                            onChange={handleChange}
+                                            error={touched.name && Boolean(errors.name)}
+                                            helperText={touched.name && errors.name}
+                                        />
+                                    </FormControl>
+                                    <TextField
+                                        label="Age"
+                                        id="age"
+                                        name="age"
+                                        variant="standard"
+                                        value={values.age}
+                                        onChange={handleChange}
+                                        error={touched.age && Boolean(errors.age)}
+                                        helperText={touched.age && errors.age}
+                                    />
+                                    <TextField
+                                        label="Height"
+                                        id="height"
+                                        name="height"
+                                        variant="standard"
+                                        value={values.height}
+                                        onChange={handleChange}
+                                        error={touched.height && Boolean(errors.height)}
+                                        helperText={touched.height && errors.height}
 
-                        />
-                        <TextField
-                            label="Weight"
-                            id="Weight"
-                            name="weight"
-                            variant="standard"
-                            value={values.weight}
-                            onChange={handleChange}
-                            error={touched.weight && Boolean(errors.weight)}
-                            helperText={touched.weight && errors.weight}
-                        />
-                        <TextField
-                            type="date"
-                            name="date"
-                            id="date"
-                            value={values.date}
-                            onChange={handleChange}
-                            error={touched.date && Boolean(errors.date)}
-                            helperText={touched.date && errors.date}
-
-                        />
-                        <Button color="primary" variant="contained" type="submit">Submit</Button>
-                    </Grid>
-                </Form>
-            )}
-        </Formik>
+                                    />
+                                    <TextField
+                                        label="Weight"
+                                        id="Weight"
+                                        name="weight"
+                                        variant="standard"
+                                        value={values.weight}
+                                        onChange={handleChange}
+                                        error={touched.weight && Boolean(errors.weight)}
+                                        helperText={touched.weight && errors.weight}
+                                    />
+                                    <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
+                                    <Button color="secondary" variant="contained" href={`/users/${values.id}`}>Cancel</Button>                    </Grid>
+                            </Form>
+                        )}
+                    </Formik>
+                </Grid>
+            </Card>
         </Grid>
     );
 }

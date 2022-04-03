@@ -5,7 +5,7 @@ const useFormExercises = () => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [showCategories, setShowCategories] = useState(false);
+    const [open, setOpen] = useState(false);
 
     const [categories, setCategories] = useState([]);
     const [deletedCategories, setDeletedCategories] = useState([]);
@@ -48,7 +48,28 @@ const useFormExercises = () => {
         }
     }
 
-    return {  deletedCategories, error, isLoading, categories, exercises }
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const deleteExercise = async (id) => {
+        try {
+            await fetch(`${BASE_URL}/exercises/${id}`, {
+                method: "DELETE",
+            }).then(response => {
+                setExercises(exercises.filter(exercise => exercise.id !== id))
+                return response.json()
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    return { deletedCategories, error, isLoading, categories, exercises, open, handleClickOpen, handleClose, deleteExercise }
 
 }
 

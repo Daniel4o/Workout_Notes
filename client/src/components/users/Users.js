@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import {Badge} from '@mui/icons-material'
 import  ListItemIcon  from '@mui/material/ListItemIcon';
 import  ListItem  from '@mui/material/ListItem';
 import useFormUsers from './useFormUsers';
@@ -53,7 +54,7 @@ const Users = () => {
                         >
                                 <Button href={`/users/${user.id}`}>
                                 <ListItemIcon>
-                                <PersonOutlineIcon />
+                                <Badge />
                                 </ListItemIcon>
                                 </Button>
                                 </ListItem>
