@@ -36,8 +36,6 @@ const AddExercise = (submitForm) => {
                                             error={touched.exercise_name && Boolean(errors.exercise_name)}
                                             helperText={touched.exercise_name && errors.exercise_name}
                                         />
-                                    </FormControl>
-                                    <FormControl variant='standard' fullWidth>
                                         <TextField
                                             select
                                             label="Select category"

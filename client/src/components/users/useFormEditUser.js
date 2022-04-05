@@ -12,7 +12,6 @@ const useFormEditUser = () => {
 
     const [usersName, setUsersName] = useState([]);
     const [user, setUser] = useState([]);
-    
 
     useEffect(() => {
         getUserNames();
@@ -24,8 +23,8 @@ const useFormEditUser = () => {
             const response = await fetch(`${BASE_URL}/users`)
             return response.json()
                 .then(data => {
+                    console.log(data)
                     const user = data.map(users => users.name).flat();
-                    console.log(user)
                     setUsersName(user)
                     setError(null)
                     setIsLoading(false)
@@ -41,8 +40,8 @@ const useFormEditUser = () => {
             const response = await fetch(`${BASE_URL}/users/${id}`)
             return response.json()
                 .then(data => {
-                    data.map(user=> {
-                    setUser(user)
+                    data.map(user => {
+                        setUser(user)
                     })
                     setError(null);
                     setIsLoading(false);
@@ -51,28 +50,26 @@ const useFormEditUser = () => {
             setError(error);
             setIsLoading(false);
         }
-
-        for (var i=0; i< usersName.length; i++) {
-            if(usersName[i] === user.name) {
-                usersName.splice(i,1)
-            }
-           
-        }
     }
 
-    // if usersName is only 1 index the name cannot be saved without edited it!!!
+    for (var i = 0; i < usersName.length; i++) {
+        if (usersName[i] === user.name) {
+            usersName.splice(i, 1)
+        }
+
+    }
 
     const initialValues = {
-        id: user.id,
-        name: user.name,
-        age: user.age,
-        height: user.height,
-        weight: user.weight,
+        id: user.id || '',
+        name: user.name || '',
+        age: user.age || '',
+        height: user.height || '',
+        weight: user.weight || '',
     };
 
     const validationSchema = Yup.object().shape({
         name: Yup.string().required("Name is required!").min(3, "Name should be atleast 3 characters!").max(20, "Maximum characters for name are 20!")
-        .notOneOf(usersName, 'User with this name already exists!'),
+            .notOneOf(usersName, 'User with this name already exists!'),
         age: Yup.number("Age is a number value!").required("Age is required!").min(10, "You are too young for, age minimum is 10!").max(100, "Invalid age!"),
         height: Yup.number("Height is a number value!").required("Height is required!").min(130, "Height minimum is 130!").max(250, "Maximum height is 250!"),
         weight: Yup.number("Weight is a number value!").required("Weight is required!").min(40, "Weight minimum is 40!").max(250, "Maximum weight is 200!"),
@@ -88,7 +85,7 @@ const useFormEditUser = () => {
         })
     }
 
-    return { initialValues, validationSchema, onSubmit, error, isLoading  }
+    return { initialValues, validationSchema, onSubmit, error, isLoading }
 }
 
 export default useFormEditUser

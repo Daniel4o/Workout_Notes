@@ -1,6 +1,6 @@
 import useFormExercises from "./useFormExercises";
 import { List, ListItem, ListItemText, Button, IconButton, Grid, Box, Checkbox, FormControlLabel, FormGroup, Divider, Card, Typography, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { Delete, Folder, Add, Warning } from '@mui/icons-material';
+import { Delete, Edit, Add, Warning } from '@mui/icons-material';
 import { useState } from 'react';
 
 const Exercises = () => {
@@ -43,7 +43,7 @@ const Exercises = () => {
                                 </IconButton>
                             }>
                             <Button href={(`/exercises/edit/${exercise.id}`)}>
-                                <Folder />
+                                <Edit />
                             </Button>
                             <ListItemText
                                 primary={exercise.exercise_name}

@@ -12,6 +12,7 @@ import EditCategory from './components/categories/EditCategory';
 import AddExercise from './components/exercises/AddExercise';
 import EditExercise from './components/exercises/EditExercise';
 import Exercises from './components/exercises/Exercises';
+import AddWorkout from './components/workouts/AddWorkout';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='/exercises/add' element={<AddExercise />} />
             <Route path='/exercises/edit/:id' element={<EditExercise />} />
             <Route path='/exercises/' element={<Exercises />} />
+            <Route path='/workouts/add' element={<AddWorkout />} />
 
           </Routes>
         </Layout>
