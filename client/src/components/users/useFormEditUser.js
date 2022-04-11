@@ -23,7 +23,6 @@ const useFormEditUser = () => {
             const response = await fetch(`${BASE_URL}/users`)
             return response.json()
                 .then(data => {
-                    console.log(data)
                     const user = data.map(users => users.name).flat();
                     setUsersName(user)
                     setError(null)

@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
 import { TextField, Grid, MenuItem, Button, FormControl, Typography, Card } from '@mui/material';
-import useFormAddWorkout from './useFormAddWorkout';
+import useFormEditWorkout from './useFormEditWorkout';
 
-const AddWorkout = (submitForm) => {
-    const { initialValues, validationSchema, error, isLoading, onSubmit, userNames, exerciseNames, inputFields, handleChangeInput, handleAddClick, handleRemoveClick } = useFormAddWorkout(submitForm)
+const EditWorkout = (submitForm) => {
+    const { initialValues, validationSchema, error, isLoading, onSubmit, userNames, exerciseNames, inputFields, handleChangeInput, handleAddClick, handleRemoveClick } = useFormEditWorkout(submitForm)
 
     if (isLoading) {
         return <div>Loading...</div>
@@ -114,4 +114,4 @@ const AddWorkout = (submitForm) => {
     )
 }
 
-export default AddWorkout
+export default EditWorkout

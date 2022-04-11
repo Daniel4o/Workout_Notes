@@ -1,28 +1,48 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as Yup from 'yup';
 
-const useFormAddWorkout = () => {
+const useFormEditWorkout = () => {
     const BASE_URL = process.env.REACT_APP_URL
 
     const navigate = useNavigate();
+    const { id } = useParams();
+
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null)
+    const [userName, setUserName] = useState([]);
+    const [workout, setWorkout] = useState([]);
+    const [workoutVolumeId , setWorkoutVolumeId] = useState([]);
+    const [sets, setSets] = useState([]);
+    const [reps, setReps] = useState([]);
+    const [weight, setWeight] = useState([]);
+    const [exerciseId, setExerciseId] = useState([]);
 
-
-    const [workoutIds, setWorkoutIds] = useState([]);
     const [exercises, setExercises] = useState([]);
     const [exerciseNames, setExerciseNames] = useState([]);
     const [users, setUsers] = useState([]);
     const [userNames, setUserNames] = useState([]);
 
     useEffect(() => {
+        getWorkoutById();
         getExercises();
         getUserNames();
-        getWorkoutIds();
     }, [BASE_URL]);
 
-
+    const getWorkoutById = async () => {
+        try {
+            const response = await fetch(`${BASE_URL}/workouts/${id}`)
+            return response.json()
+                .then(data => {
+                   setWorkout(data)
+                    setError(null)
+                    setIsLoading(false)
+                })
+        } catch (error) {
+            setError(error)
+            setIsLoading(false)
+        }
+    }
 
     const getUserNames = async () => {
         try {
@@ -30,6 +50,8 @@ const useFormAddWorkout = () => {
             return response.json()
                 .then(data => {
                     setUsers(data)
+                    const user = data.filter(user=> user.id === data.user_id)
+                    setUserName(user.map(user=>user.name).toString())
                     const allUserNames = data.map(user => user.name).flat();
                     setUserNames(allUserNames)
                     setError(null)
@@ -58,25 +80,28 @@ const useFormAddWorkout = () => {
         }
     }
 
-    const getWorkoutIds = async () => {
-        try {
-            const response = await fetch(`${BASE_URL}/workouts`)
-            return response.json()
-                .then(data => {
-                    setWorkoutIds(data.workoutVolume.map(workouts => workouts.id).flat());
-                    setError(null)
-                    setIsLoading(false)
-                })
-        } catch (error) {
-            setError(error)
-            setIsLoading(false)
-        }
-    }
+   const workoutVolume = workout.map(volume=>{
+        setWorkoutVolumeId(volume['workoutVolume.id'])
+    setExerciseId(volume['workoutVolume.exercise_id'])
+    setSets(volume['workoutVolume.sets'])
+    setWeight(volume['workoutVolume.weights'])
+    setReps(volume['workoutVolume.reps'])
+})
 
-    const [inputFields, setInputFields] = useState([{
-        id: Math.floor(Math.random() * (100000 - 1) + 1), exercise: "", sets: "", reps: "", weight: ""
-    }])
-
+const exerciseName =exerciseId.forEach((element,index) => {
+    exerciseId[index] = exercises.find(exercise=>exercise.id === exerciseId[index]).exercise_name
+})
+console.log(workoutVolume)
+const [inputFields, setInputFields] = useState([
+    { id: workoutVolumeId[0], exercise: exerciseName[0], sets: sets[0], reps: reps[0], weight: weight[0]},
+    { id: workoutVolumeId[1], exercise: exerciseName[1], sets: sets[1], reps: reps[1], weight: weight[1]},
+    { id: workoutVolumeId[2], exercise: exerciseName[2], sets: sets[2], reps: reps[2], weight: weight[2]},
+    { id: workoutVolumeId[3], exercise: exerciseName[3], sets: sets[3], reps: reps[3], weight: weight[3]},
+    { id: workoutVolumeId[4], exercise: exerciseName[4], sets: sets[4], reps: reps[4], weight: weight[4]},
+    { id: workoutVolumeId[5], exercise: exerciseName[5], sets: sets[5], reps: reps[5], weight: weight[5]},
+    { id: workoutVolumeId[6], exercise: exerciseName[6], sets: sets[6], reps: reps[6], weight: weight[6]},
+    { id: workoutVolumeId[7], exercise: exerciseName[7], sets: sets[7], reps: reps[7], weight: weight[7]}
+])
     const handleChangeInput = (id) => (event) => {
         const { value } = event.target;
         setInputFields((list) =>
@@ -104,9 +129,16 @@ const useFormAddWorkout = () => {
     };
 
     const initialValues = {
-        user: "",
-        date: "",
-
+        user: userName,
+        date: workout.date || '',
+        exercise_one: workout.exercise_one || '',
+        exercise_two: workout.exercise_two || '',
+        exercise_three: workout.exercise_three || '',
+        exercise_four: workout.exercise_four || '',
+        exercise_five: workout.exercise_five || '',
+        exercise_six: workout.exercise_six || '',
+        exercise_seven: workout.exercise_seven || '',
+        exercise_eight: workout.exercise_eight || '',
     };
 
     const validationSchema = Yup.object().shape({
@@ -117,10 +149,7 @@ const useFormAddWorkout = () => {
 
     const onSubmit = (data) => {
         try {
-            data.id = Math.floor(Math.random() * (100000 - 1) + 1);
-            while (workoutIds.some(id => id === data.id)) {
-                data.id = Math.floor(Math.random() * (100000 - 1) + 1);
-            }
+
             const submittedExercises = inputFields.map(exercise => exercise.exercise.split(','))
 
             data.user_id = users.find(user => user.name === data.user).id
@@ -147,9 +176,9 @@ const useFormAddWorkout = () => {
                     data.exercise_eight = exercises.find(exercise => exercise.exercise_name === submittedExercises[7].toString()).id
                 }
             }
-            console.log(data, inputFields)
+
             fetch(`${BASE_URL}/workouts`, {
-                method: "POST",
+                method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             }).then(() => {
@@ -186,6 +215,6 @@ const useFormAddWorkout = () => {
     }
 
     return { initialValues, validationSchema, onSubmit, userNames, exerciseNames, error, isLoading, inputFields, handleChangeInput, handleAddClick, handleRemoveClick }
-}
 
-export default useFormAddWorkout
+}
+export default useFormEditWorkout

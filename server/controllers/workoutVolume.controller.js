@@ -13,7 +13,9 @@ exports.getAllWorkoutsVolume = async (req, res) => {
 
 exports.getWorkoutVolumeById = async (req, res) => {
     try {
-        const workoutVolume = await Workout_Volume.findByPk(req.params.id)
+        const workoutVolume = await Workout_Volume.findAll({
+            where: { workout_id: req.params.id }
+        })
         res.status(200).send(workoutVolume)
     } catch (error) {
         return res.status(500).send(error)

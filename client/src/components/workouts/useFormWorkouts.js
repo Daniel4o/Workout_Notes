@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 
-const useFormUsers = () => {
+const useFormWorkouts = () => {
     const BASE_URL = process.env.REACT_APP_URL
 
     const [isLoading, setIsLoading] = useState(true);
-    const [users, setUsers] = useState([]);
+    const [workouts, setWorkouts] = useState([]);
     const [error, setError] = useState(null)
 
     useEffect(async () => {
         try {
-            const response = await fetch(`${BASE_URL}/users`)
+            const response = await fetch(`${BASE_URL}/workouts`)
             return response.json()
                 .then(data => {
-                    setUsers(data)
+                    setWorkouts(data.userWorkouts)
                     setError(null)
                     setIsLoading(false)
                 })
@@ -23,12 +23,12 @@ const useFormUsers = () => {
     }, [BASE_URL]);
 
 
-    const deleteUser = async (id) => {
+    const deleteWorkout = async (id) => {
         try {
-            await fetch(`${BASE_URL}/users/${id}`, {
+            await fetch(`${BASE_URL}/workouts/${id}`, {
                 method: "DELETE",
             }).then(response => {
-                setUsers(users.filter(user => user.id !== id))
+                setWorkouts(workouts.filter(workout => workout.id !== id))
                 return response.json()
             })
         } catch (error) {
@@ -36,7 +36,7 @@ const useFormUsers = () => {
         }
     }
 
-    return { users, error, deleteUser, isLoading }
+    return { workouts, error, deleteWorkout, isLoading }
 }
 
-export default useFormUsers
+export default useFormWorkouts

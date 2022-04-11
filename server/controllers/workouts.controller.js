@@ -3,14 +3,23 @@ const Workout = models.workouts;
 
 exports.getWorkouts = async (req, res) => {
     try {
-        const workouts = await Workout.findAll({
+        const workoutVolume = await Workout.findAll({
             raw: true,
             include: [{
                 model: models.workout_volume,
                 as: "workoutVolume"
             }]
         })
-        return res.status(200).send(workouts)
+        const userWorkouts = await Workout.findAll({
+            raw: true,
+            include:[{
+                model:models.user,
+                as:"userWorkouts",
+                attributes:["name"]
+            }]
+        })
+
+        return res.status(200).send({workoutVolume, userWorkouts})
     } catch (error) {
         return res.status(500).send(error)
     }
@@ -18,7 +27,7 @@ exports.getWorkouts = async (req, res) => {
 
 exports.getWorkout = async (req, res) => {
     try {
-        const workout = await Workout.findAll({
+        const workoutVolume = await Workout.findAll({
             where: { id: req.params.id },
             raw: true,
             include: [{
@@ -26,7 +35,7 @@ exports.getWorkout = async (req, res) => {
                 as: "workoutVolume"
             }]
         })
-        res.status(200).send(workout)
+        res.status(200).send(workoutVolume)
     } catch (error) {
         return res.status(500).send(error)
     }

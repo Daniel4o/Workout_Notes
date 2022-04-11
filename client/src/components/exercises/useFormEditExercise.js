@@ -44,7 +44,6 @@ const useFormAddExercise = () => {
             const response = await fetch(`${BASE_URL}/categories`)
             return response.json()
                 .then(data => {
-                    console.log(data)
                     setCategories(data)
                     const allCategoryNames = data.map(category => category.category_name).flat();
                     setCategoryNames(allCategoryNames)

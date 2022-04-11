@@ -18,7 +18,6 @@ const AddUser = (submitForm) => {
                 <Grid sx={{ m: 10 }}>
                     <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit User</Typography>
                     <Formik
-                        enableReinitialize
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}

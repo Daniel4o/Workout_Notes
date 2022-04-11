@@ -13,7 +13,8 @@ import AddExercise from './components/exercises/AddExercise';
 import EditExercise from './components/exercises/EditExercise';
 import Exercises from './components/exercises/Exercises';
 import AddWorkout from './components/workouts/AddWorkout';
-
+import EditWorkout from './components/workouts/EditWorkout';
+import Workouts from './components/workouts/Workouts';
 function App() {
   return (
     <Grid container>
@@ -32,7 +33,8 @@ function App() {
             <Route path='/exercises/edit/:id' element={<EditExercise />} />
             <Route path='/exercises/' element={<Exercises />} />
             <Route path='/workouts/add' element={<AddWorkout />} />
-
+            <Route path='/workouts/edit/:id' element={<EditWorkout />} />
+            <Route path='/workouts/' element={<Workouts />} />
           </Routes>
         </Layout>
       </Router>

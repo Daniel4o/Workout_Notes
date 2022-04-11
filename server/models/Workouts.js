@@ -61,6 +61,11 @@ const workout = (sequelize, DataTypes) => {
             targetKey: "workout_id",
             as: "workoutVolume"
         })
+        Workout.belongsTo(models.workout_volume, {
+            foreignKey: "user_id",
+            targetKey: "id",
+            as: "userWorkouts"
+        })
     }
     Workout.sync()
     return Workout
