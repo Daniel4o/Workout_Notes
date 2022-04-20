@@ -13,11 +13,11 @@ const Categories = () => {
   }
 
   return (
-    <Grid container sx={{ m: 10, mt: 2 }} className='content'>
-      <Card sx={{ width: 500, m: 8, pb: 5, pt: 5 }}>
+    <Grid container sx={{ mt: 2 }} className='content' style={{width:'80vw'}}>
+      <Card sx={{ width: '700px', m: 8, pb: 5, pt: 5 }}>
         <Typography variant='h4' align='center' sx={{ mb: 4 }}>Categories</Typography>
-        <Button sx={{ ml: 45, mb: 2 }} href={('/categories/add')}>
-          <Add />
+        <Button variant='contained' sx={{ ml: 55, mb: 2 }} href={('/categories/add')} startIcon={<Add />}>
+          Add 
         </Button>
 
         {categories.map(category => {

@@ -2,21 +2,21 @@ import { Link, } from "react-router-dom";
 import useFormGetUserById from "./useFormGetUserById";
 import { Button, Divider, Typography, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar, Card, Dialog, DialogContent, DialogContentText, DialogActions, DialogTitle } from "@mui/material";
 import { WorkOutlineOutlined, WorkIcon, Badge, Edit, Delete, Warning } from '@mui/icons-material';
-import { useState } from 'react';
+
 const GetUserById = () => {
     const { error, isLoading, user, handleClickOpen, handleClose, open, deleteUser } = useFormGetUserById()
 
     if (isLoading) {
-        return (<Grid>Loading...</Grid>)
+        return <Grid>Loading...</Grid>
     }
     if (error) {
         return <Grid>There was an error: {error}</Grid>
     }
 
     return (
-        <Grid container sx={{ m: 10, mt: 4 }} className='content'>
-            <Card sx={{ width: 500, m: 8 }}>
-                <List sx={{ left: '75px', maxWidth: 350, bgcolor: 'background.paper' }}>
+        <Grid  className='contentInput'>
+            <Card className='createPage'>
+                <List>
                     <Typography variant='h4' align='center' sx={{ pb: 4, mt: 2 }}>User Info</Typography>
                     <ListItem>
                         <ListItemAvatar >
@@ -45,11 +45,11 @@ const GetUserById = () => {
                         </ListItemAvatar>
                         <ListItemText primary="Weight" secondary={user.weight} />
                     </ListItem>
-                    <Box sx={{ '& button': { m: 1, left: '225px' } }}>
-                        <Button href={(`/users/edit/${user.id}`)}>
-                            <Edit />
+                    <Box  sx={{ '& button': { m: 1 } }}>
+                        <Button variant='contained' href={(`/users/edit/${user.id}`)} startIcon={<Edit/>}>
+                            Edit
                         </Button>
-                        <Button onClick={handleClickOpen}><Delete /></Button>
+                        <Button onClick={handleClickOpen} endIcon={<Delete/>}>Delete</Button>
                         <Dialog
                             open={open}
                             onClose={handleClose}

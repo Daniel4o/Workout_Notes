@@ -30,6 +30,9 @@ const exercise = (sequelize, DataTypes) => {
             targetKey: "id",
             as: "exerciseCategories"
         })
+        Exercise.belongsTo(models.workouts,{foreignKey:'id'})
+        Exercise.belongsTo(models.workout_volume,{foreignKey:'id'})
+
     }
 
     Exercise.sync()

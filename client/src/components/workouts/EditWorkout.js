@@ -16,9 +16,10 @@ const EditWorkout = (submitForm) => {
         <Grid container sx={{ m: 10 }} className='content'>
             <Card sx={{ maxWidth: 1000 }}>
                 <Grid sx={{ m: 16 }} >
-                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Add Workout</Typography>
+                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit Workout</Typography>
 
                     <Formik
+                        enableReinitialize
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}

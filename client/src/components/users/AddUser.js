@@ -13,10 +13,10 @@ const AddUser = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{ m: 10, ml: 20 }} className='content'>
-            <Card sx={{ maxWidth: 1000 }}>
-                <Grid sx={{ m: 10 }}>
-                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit User</Typography>
+        <Grid className='contentInput' >
+            <Card  className='createPage'>
+                <Grid >
+                    <Typography variant='h4' sx={{ mb: 4, mt:6 }} align='center'>Add User</Typography>
                     <Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
@@ -69,7 +69,7 @@ const AddUser = (submitForm) => {
                                         />
                                     </FormControl>
                                     <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
-                                    <Button color="secondary" variant="contained" href={'/users'}>Cancel</Button>                    </Grid>
+                                    <Button color="secondary" variant="contained" href={'/users'} sx={{mb:6}}>Cancel</Button>                    </Grid>
                             </Form>
                         )}
                     </Formik>

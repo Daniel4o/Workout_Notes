@@ -3,7 +3,7 @@ const workoutVolume = (sequelize, DataTypes) => {
         'workout_volume', {
         workout_id: {
             type: DataTypes.INTEGER, allowNull: false,
-            references: { model: "workouts", key: "id" },
+         //   references: { model: "workouts", key: "id" },
             validate: {
                 notNull: { msg: "You need to provide workout_id !" }
             }
@@ -45,7 +45,15 @@ const workoutVolume = (sequelize, DataTypes) => {
             freezeTableName: true,
         },
     )
-    
+
+    Workout_Volume.associate = models => {
+        Workout_Volume.belongsTo(models.exercises, {
+            foreignKey: "exercise_id",
+            targetKey: "id",
+            as: "exercises"
+        })
+    }
+
     Workout_Volume.sync()
     return Workout_Volume
 }

@@ -15,11 +15,10 @@ const Exercises = () => {
     }
 
     return (
-        <Grid container sx={{ m: 10, mt: 4 }} className='content'>
-            <Card sx={{ width: 500, m: 8 }}>
-                <Typography variant='h4' align='center' sx={{ mb: 4 }}>Exercises</Typography>
-                <FormGroup row>
-                    <FormControlLabel
+        <Grid  className='content' sx={{width:'80vw', pt:15,pb:5}}>
+            <Card>
+                <Typography variant='h4' align='center' sx={{ mb: 4, mt:4 }}>Exercises</Typography>
+                    <FormControlLabel sx={{justifyContent:'center', width:'500px'}}
                         label="Show Categories"
                         control={
                             <Checkbox
@@ -28,13 +27,13 @@ const Exercises = () => {
                             />
                         }
                     />
-                    <Button variant='fab' sx={{ ml: 33 }} href={('/exercises/add')}>
+                    <Button sx={{pr:10}} variant='fab' href={('/exercises/add')}>
                         <Add />
                     </Button>
-                </FormGroup>
                 <Divider />
+                <Grid >
                 {exercises.map(exercise => (
-                    <List>
+                    <List sx={{width:'400px', display:'flex,', width:'90%'}}>
                         <ListItem
                             key={exercise.id}
                             secondaryAction={
@@ -42,10 +41,10 @@ const Exercises = () => {
                                     <Delete />
                                 </IconButton>
                             }>
-                            <Button href={(`/exercises/edit/${exercise.id}`)}>
+                            <Button href={(`/exercises/edit/${exercise.id}`)} >
                                 <Edit />
                             </Button>
-                            <ListItemText
+                            <ListItemText sx={{justifyContent:'center', widt:'400px'}}
                                 primary={exercise.exercise_name}
                                 secondary={showCategories ? exercise["exerciseCategories.category_name"] : null}
                             />
@@ -74,6 +73,7 @@ const Exercises = () => {
                         </Dialog>
                     </List>
                 ))}
+                </Grid>
             </Card>
         </Grid>
     )

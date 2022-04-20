@@ -7,19 +7,19 @@ exports.getWorkouts = async (req, res) => {
             raw: true,
             include: [{
                 model: models.workout_volume,
-                as: "workoutVolume"
+                as: "workout_volume"
             }]
         })
         const userWorkouts = await Workout.findAll({
             raw: true,
-            include:[{
-                model:models.user,
-                as:"userWorkouts",
-                attributes:["name"]
+            include: [{
+                model: models.users,
+                as: "userWorkouts",
+                attributes: ["name"]
             }]
         })
 
-        return res.status(200).send({workoutVolume, userWorkouts})
+        return res.status(200).send({ workoutVolume, userWorkouts })
     } catch (error) {
         return res.status(500).send(error)
     }
@@ -32,7 +32,7 @@ exports.getWorkout = async (req, res) => {
             raw: true,
             include: [{
                 model: models.workout_volume,
-                as: "workoutVolume"
+                as: "workout_volume"
             }]
         })
         res.status(200).send(workoutVolume)

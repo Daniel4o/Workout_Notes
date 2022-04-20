@@ -14,8 +14,8 @@ const AddCategory = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{ m: 10 }} className='content'>
-            <Card sx={{ maxWidth: 1000 }}>
+        <Grid  className='contentInput'>
+            <Card className='createPage' >
                 <Grid sx={{ m: 16 }} >
                     <Typography variant='h4' sx={{ mb: 4 }} align='center'>Add Category</Typography>
                     <Formik

@@ -11,7 +11,7 @@ module.exports = {
       },
       workout_id: {
         type: Sequelize.INTEGER, allowNull: false,
-        references: { model: "workouts", key: "id" },
+      //  references: { model: "workouts", key: "id" },
         validate: {
           notNull: { msg: "You need to provide workout_id !" }
         }

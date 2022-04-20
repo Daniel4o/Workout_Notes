@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { Badge, Add, PersonOutlineIcon } from '@mui/icons-material'
-import { Grid, Container, Card, Paper, Button, List, ListItem, ListItemIcon } from '@mui/material';
+import { Badge, PersonOutlineIcon, KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material'
+import { Grid, Container, Box, ListItem, Button, ListItemIcon, Card, Paper, Typography, IconButton, Collapse, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import useFormUsers from './useFormUsers';
+
+import { Delete, Edit, Add, ExpandMore, Warning } from '@mui/icons-material';
 
 const Users = () => {
     const { users, error, isLoading } = useFormUsers();
@@ -17,59 +19,43 @@ const Users = () => {
     return (
         <Grid sx={{ mt: 6, m: 8 }} className='content'>
             <Card sx={{ width: 1000 }}>
-                <Table >
-                    <TableHead>
-                        <TableRow>
-                            <TableCell align="center" colSpan={6}>
-                                Users
-                                <Button sx={{ left: '450px' }} href={('/users/add')}>
-                                    <Add />
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Profile</TableCell>
-                            <TableCell align='right'>Name</TableCell>
-                            <TableCell align="right">Age</TableCell>
-                            <TableCell align="right">Height</TableCell>
-                            <TableCell align="right">Weight</TableCell>
-                            <TableCell align="right">Workouts</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {users.map((user) => (
-                            <TableRow key={user.id}>
-                                <TableCell>
-                                    <ListItem
-                                        key={user.id}
-                                    >
-                                        <Button href={`/users/${user.id}`}>
-                                            <ListItemIcon>
-                                                <Badge />
-                                            </ListItemIcon>
-                                        </Button>
-                                    </ListItem>
-                                </TableCell>
-                                <TableCell>{user.name}</TableCell>
-                                <TableCell align="right">{user.age}</TableCell>
-                                <TableCell align="right">{user.height}</TableCell>
-                                <TableCell align="right">{user.weight}</TableCell>
+                <TableContainer component={Paper}>
+                    <Typography variant='h4' align='center' sx={{ mb: 4, mt: 4 }}>Workouts</Typography>
+                    <Table sx={{ minWidth: 650 }} aria-label="customized table">
+                        <TableHead sx={{ backgroundColor: "yellow", color: 'blue' }}>
+                            <TableRow sx={{ color: 'white' }}>
+                                <TableCell align='center'>User</TableCell>
+                                <TableCell align='center'>Age</TableCell>
+                                <TableCell align='center' >Height</TableCell>
+                                <TableCell align='center' >Weight</TableCell>
+                                <TableCell align='center' >View Profile</TableCell>
                             </TableRow>
-                        ))}
-                        <TableRow>
-                            <TableCell rowSpan={3} />
-                            <TableCell colSpan={2}>Overall</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Workouts</TableCell>
-                            <TableCell align="right">(number of total workouts)</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell >Favorite Muscle Trained</TableCell>
-                            <TableCell align="right">(favorite muscle trained)</TableCell>
-                        </TableRow>
-                    </TableBody>
-                </Table>
+                        </TableHead>
+                        <TableBody>
+                            {users.map((user) => (
+                                <TableRow
+                                    key={user.id}
+                                >
+                                    <TableCell align='center'>{user.name}.</TableCell>
+                                    <TableCell align='center' scope="row">{user.age}</TableCell>
+                                    <TableCell align='center' >{user.height}</TableCell>
+                                    <TableCell align='center' >{user.weight} </TableCell>
+                                    <TableCell align='center'>
+                                        <ListItem
+                                            key={user.id}
+                                        >
+                                            <Button href={`/users/${user.id}`}>
+                                                <ListItemIcon>
+                                                    <Badge />
+                                                </ListItemIcon>
+                                            </Button>
+                                        </ListItem>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </Card>
         </Grid>
     );

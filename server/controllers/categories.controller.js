@@ -20,7 +20,7 @@ exports.getCategories = async (req, res) => {
                 attributes: ["exercise_name", "id"]
             }]
         })
-        
+
         var output = [];
 
         categories.forEach(function (item) {
@@ -35,8 +35,8 @@ exports.getCategories = async (req, res) => {
             } else {
                 if (typeof item['categoryExercises.exercise_name'] == 'string')
                     item['categoryExercises.exercise_name'] = [item['categoryExercises.exercise_name']];
-                    item['categoryExercises.id'] = [item['categoryExercises.id']];
-                    output.push(item);
+                item['categoryExercises.id'] = [item['categoryExercises.id']];
+                output.push(item);
             }
         });
         return res.status(200).send(output)
@@ -52,7 +52,7 @@ exports.getCategory = async (req, res) => {
             raw: true,
             include: [{
                 model: models.exercises,
-                as: "categoryExercsies"
+                as: "categoryExercises"
             }]
         })
         const output = category.reduce((accu, { id, ...rest }) => {
@@ -60,7 +60,6 @@ exports.getCategory = async (req, res) => {
             accu[id] = { id, ...accu[id], ...rest };
             return accu;
         }, {});
-        console.log(output)
         res.status(200).send(output)
     } catch (error) {
         return res.status(500).send(error)

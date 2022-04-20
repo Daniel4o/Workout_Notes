@@ -22,8 +22,6 @@ const useFormAddWorkout = () => {
         getWorkoutIds();
     }, [BASE_URL]);
 
-
-
     const getUserNames = async () => {
         try {
             const response = await fetch(`${BASE_URL}/users`)
@@ -106,7 +104,6 @@ const useFormAddWorkout = () => {
     const initialValues = {
         user: "",
         date: "",
-
     };
 
     const validationSchema = Yup.object().shape({
@@ -121,40 +118,17 @@ const useFormAddWorkout = () => {
             while (workoutIds.some(id => id === data.id)) {
                 data.id = Math.floor(Math.random() * (100000 - 1) + 1);
             }
-            const submittedExercises = inputFields.map(exercise => exercise.exercise.split(','))
-
+            
             data.user_id = users.find(user => user.name === data.user).id
-            data.exercise_one = exercises.find(exercise => exercise.exercise_name === submittedExercises[0].toString()).id
-            if (submittedExercises[1]) {
-                data.exercise_two = exercises.find(exercise => exercise.exercise_name === submittedExercises[1].toString()).id
-
-                if (submittedExercises[2]) {
-                    data.exercise_three = exercises.find(exercise => exercise.exercise_name === submittedExercises[2].toString()).id
-                }
-                if (submittedExercises[3]) {
-                    data.exercise_four = exercises.find(exercise => exercise.exercise_name === submittedExercises[3].toString()).id
-                }
-                if (submittedExercises[4]) {
-                    data.exercise_five = exercises.find(exercise => exercise.exercise_name === submittedExercises[4].toString()).id
-                }
-                if (submittedExercises[5]) {
-                    data.exercise_six = exercises.find(exercise => exercise.exercise_name === submittedExercises[5].toString()).id
-                }
-                if (submittedExercises[6]) {
-                    data.exercise_seven = exercises.find(exercise => exercise.exercise_name === submittedExercises[6].toString()).id
-                }
-                if (submittedExercises[7]) {
-                    data.exercise_eight = exercises.find(exercise => exercise.exercise_name === submittedExercises[7].toString()).id
-                }
-            }
-            console.log(data, inputFields)
+            
             fetch(`${BASE_URL}/workouts`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             }).then(() => {
                 let requests = [];
-
+                const submittedId = inputFields.map(exercise=> exercise.id)
+                const submittedExercises = inputFields.map(exercise => exercise.exercise.split(','))
                 const submittedSets = inputFields.map(exercise => exercise.sets.split(','))
                 const submittedReps = inputFields.map(exercise => exercise.reps.split(','))
                 const submittedWeight = inputFields.map(exercise => exercise.weight.split(','))
@@ -162,6 +136,7 @@ const useFormAddWorkout = () => {
                 for (var i = 0; i < inputFields.length; i++) {
 
                     const workoutVolume = {
+                        id: submittedId[i],
                         workout_id: data.id,
                         exercise_id: exercises.find(exercise => exercise.exercise_name === submittedExercises[i].toString()).id,
                         sets: submittedSets[i],
@@ -174,6 +149,7 @@ const useFormAddWorkout = () => {
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(workoutVolume)
                         }))
+                        console.log(workoutVolume)
                 }
                 Promise.all(requests).then(() => {
                     console.log('done')

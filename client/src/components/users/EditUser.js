@@ -14,9 +14,9 @@ const EditUser = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{ m: 10, ml: 20 }} className='content'>
-            <Card sx={{ maxWidth: 1000 }}>
-                <Grid sx={{ m: 10 }}>
+        <Grid className='contentInput'>
+            <Card className='createPage'>
+                <Grid >
                     <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit User</Typography>
                     <Formik
                         enableReinitialize

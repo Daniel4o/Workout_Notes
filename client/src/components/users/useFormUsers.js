@@ -22,7 +22,6 @@ const useFormUsers = () => {
         }
     }, [BASE_URL]);
 
-
     const deleteUser = async (id) => {
         try {
             await fetch(`${BASE_URL}/users/${id}`, {
@@ -36,7 +35,7 @@ const useFormUsers = () => {
         }
     }
 
-    return { users, error, deleteUser, isLoading }
+    return { users, error, deleteUser, isLoading}
 }
 
 export default useFormUsers

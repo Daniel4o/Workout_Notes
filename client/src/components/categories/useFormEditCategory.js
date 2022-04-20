@@ -39,7 +39,7 @@ const useFormEditCategory = () => {
             const response = await fetch(`${BASE_URL}/categories/${id}`)
             return response.json()
                 .then(data => {
-                    setCategoryName(data.category_name)
+                    setCategoryName(data[id].category_name)
                     setError(null)
                     setIsLoading(false)
                 })
