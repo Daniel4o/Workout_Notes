@@ -102,13 +102,13 @@ const useFormWorkouts = () => {
     const handleClose = () => {
         setOpen(false);
     }
-
     const deleteWorkout = async (id) => {
         try {
             await fetch(`${BASE_URL}/workouts/${id}`, {
                 method: "DELETE",
             }).then(response => {
                 setWorkouts(workouts.filter(workout => workout.id !== id))
+                setOpen(false)
                 return response.json()
             })
         } catch (error) {
@@ -116,7 +116,7 @@ const useFormWorkouts = () => {
         }
     }
 
-    return { workouts, exercises, workoutVolume, error, deleteWorkout, isLoading, open, handleClose, handleClickOpen }
+    return { workouts, exercises, workoutVolume, error, deleteWorkout, isLoading, open, setOpen, handleClose, handleClickOpen }
 }
 
 export default useFormWorkouts

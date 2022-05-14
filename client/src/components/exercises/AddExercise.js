@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { TextField, Grid, Select, MenuItem, Button, FormControl, InputLabel, FormGroup, Typography, Card } from '@mui/material';
+import { TextField, Grid, Select, MenuItem, Button, FormControl, InputLabel, FormGroup, Typography, Card, FormLabel } from '@mui/material';
 import useFormAddExercise from './useFormAddExercise';
 
 const AddExercise = (submitForm) => {
@@ -13,19 +13,17 @@ const AddExercise = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{ m: 10}} className='content'>
-            <Card sx={{ maxWidth: 1000 }}>
-                <Grid sx={{ m: 16 }} >
-                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Add Exercise</Typography>
+        <Grid className="createPage" >
+            <Card>
                     <Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}
                     >
                         {({ values, errors, touched, handleChange, handleSubmit }) => (
-                            <Form onSubmit={handleSubmit} style={{width:300}} >
-                                <Grid container  direction="column" justifyContent="space-evenly" alignItems="center" >
-                                    <FormControl variant="standard" fullWidth>
+                            <Form onSubmit={handleSubmit} className="formContainer" >
+                                <h2>Add Exercise</h2>
+                                    <FormControl variant="standard" >
                                         <TextField
                                             label=" Exercise name"
                                             id="exercise_name"
@@ -54,11 +52,9 @@ const AddExercise = (submitForm) => {
                                     </FormControl>
                                     <Button color="primary" variant="contained"  type="submit" sx={{ mt: 4 }}>Submit</Button>
                                     <Button color="secondary" variant="contained"  href={('/exercises')}>Cancel</Button>
-                                </Grid>
                             </Form>
                         )}
                     </Formik >
-                </Grid >
             </Card>
         </Grid>
     )

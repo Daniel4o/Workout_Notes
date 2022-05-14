@@ -1,10 +1,9 @@
-import { Link, } from "react-router-dom";
-import useFormGetUserById from "./useFormGetUserById";
-import { Button, Divider, Typography, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar, Card, Dialog, DialogContent, DialogContentText, DialogActions, DialogTitle } from "@mui/material";
-import { WorkOutlineOutlined, WorkIcon, Badge, Edit, Delete, Warning } from '@mui/icons-material';
+import useFormUserById from "./useFormUserById";
+import { Button, Divider, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar, Card, Dialog, DialogContent, DialogContentText, DialogActions, DialogTitle } from "@mui/material";
+import { WorkOutlineOutlined, Edit, Delete, Warning } from '@mui/icons-material';
 
 const GetUserById = () => {
-    const { error, isLoading, user, handleClickOpen, handleClose, open, deleteUser } = useFormGetUserById()
+    const { error, isLoading, user, handleClickOpen, handleClose, open, deleteUser } = useFormUserById()
 
     if (isLoading) {
         return <Grid>Loading...</Grid>
@@ -61,7 +60,7 @@ const GetUserById = () => {
                                 </DialogTitle>
                                 <DialogContent>
                                     <DialogContentText color='black'>
-                                        <Warning fontSize='large' color='error' sx={{ mr: 4, pt: 1 }} />
+                                        <Warning fontSize='large' color='error' id='warning' />
                                         Are you sure you want to delete the user: {user.name} ?
                                     </DialogContentText>
                                 </DialogContent>

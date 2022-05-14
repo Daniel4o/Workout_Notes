@@ -13,19 +13,17 @@ const AddUser = (submitForm) => {
     }
 
     return (
-        <Grid className='contentInput' >
-            <Card  className='createPage'>
-                <Grid >
-                    <Typography variant='h4' sx={{ mb: 4, mt:6 }} align='center'>Add User</Typography>
+        <Grid className='createPage' >
+            <Card>
                     <Formik
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}
-                    >
+                        >
                         {({ values, errors, touched, handleChange, handleSubmit }) => (
-                            <Form onSubmit={handleSubmit} style={{ width: 275 }}>
-                                <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
-                                    <FormControl variant="standard" fullWidth>
+                            <Form onSubmit={handleSubmit} className='formContainer'>
+                                <h2>Add User</h2>
+                                    <FormControl >
                                         <TextField
                                             label="Name"
                                             id="name"
@@ -69,11 +67,10 @@ const AddUser = (submitForm) => {
                                         />
                                     </FormControl>
                                     <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
-                                    <Button color="secondary" variant="contained" href={'/users'} sx={{mb:6}}>Cancel</Button>                    </Grid>
+                                    <Button color="secondary" variant="contained" href={'/users'} sx={{mb:6}}>Cancel</Button>                   
                             </Form>
                         )}
                     </Formik>
-                </Grid>
             </Card>
         </Grid>
     )

@@ -14,10 +14,8 @@ const EditUser = (submitForm) => {
     }
 
     return (
-        <Grid className='contentInput'>
-            <Card className='createPage'>
-                <Grid >
-                    <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit User</Typography>
+        <Grid className='createPage'>
+            <Card >
                     <Formik
                         enableReinitialize
                         initialValues={initialValues}
@@ -25,9 +23,9 @@ const EditUser = (submitForm) => {
                         validationSchema={validationSchema}
                     >
                         {({ values, errors, touched, handleChange, handleSubmit }) => (
-                            <Form onSubmit={handleSubmit} style={{width:275}}>
-                                <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
-                                    <FormControl variant="standard" fullWidth>
+                            <Form onSubmit={handleSubmit} className='formContainer'>
+                                <h1 >Edit User</h1>
+                                    <FormControl >
                                         <TextField
                                             label="Name"
                                             id="name"
@@ -71,11 +69,10 @@ const EditUser = (submitForm) => {
                                     />
                                     </FormControl>
                                     <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
-                                    <Button color="secondary" variant="contained" href={`/users/${values.id}`}>Cancel</Button>                    </Grid>
+                                    <Button color="secondary" variant="contained" href={`/users/${values.id}`}>Cancel</Button>                  
                             </Form>
                         )}
                     </Formik>
-                </Grid>
             </Card>
         </Grid>
     );

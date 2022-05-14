@@ -3,7 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, C
 import { Delete, Edit, Add, ExpandMore, Warning } from '@mui/icons-material';
 
 const Categories = () => {
-  const { error, isLoading, categories, expanded, handleClick, deleteCategory, handleClickOpen, handleClose, open } = useFormCategories();
+  const { error, isLoading, categories, expanded, handleClick, deleteCategory } = useFormCategories();
 
   if (isLoading) {
     return (<div>Loading...</div>)
@@ -13,30 +13,27 @@ const Categories = () => {
   }
 
   return (
-    <Grid container sx={{ mt: 2 }} className='content' style={{width:'80vw'}}>
-      <Card sx={{ width: '700px', m: 8, pb: 5, pt: 5 }}>
-        <Typography variant='h4' align='center' sx={{ mb: 4 }}>Categories</Typography>
+    <Grid container  className='content' >
+      <Card className='exerciseCard'>
+        <h1>Categories</h1>
         <Button variant='contained' sx={{ ml: 55, mb: 2 }} href={('/categories/add')} startIcon={<Add />}>
           Add 
         </Button>
-
+        <Divider />
         {categories.map(category => {
           let exercises = 'No exercises for this category!'
           if (category['categoryExercises.exercise_name']) {
             exercises = category['categoryExercises.exercise_name'].join(',\n')
           }
-
           return (
-            <Grid container direction="column" justifyContent="space-evenly" alignItems="center" sx={{ mt: 2 }} >
-              <Accordion style={{ width: 300 }}
+            <Grid className='categoriesContent' >
+              <Accordion 
                 key={category.id}
                 expanded={expanded === category.id}
                 onChange={handleClick(category.id)}
               >
                 <AccordionSummary
                   expandIcon={<ExpandMore />}
-                  aria-controls="panel1bh-content"
-                  id="panel1bh-header"
                 >
                   <Typography sx={{ width: '30%', flexShrink: 0, mr: 4 }}>
                     {category.category_name}
@@ -52,30 +49,7 @@ const Categories = () => {
                   <Button href={(`/categories/edit/${category.id}`)}>
                     <Edit />
                   </Button>
-                  <Button onClick={handleClickOpen}><Delete /></Button>
-                  <Dialog
-                    open={open}
-                    onClose={handleClose}
-                    style={{ borderColor: 'red' }}
-                  >
-                    <Box sx={{ borderTop: 3, color: 'red' }}>
-                      <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
-                        Delete Category
-                      </DialogTitle>
-                      <DialogContent>
-                        <DialogContentText color='black'>
-                          <Warning fontSize='large' color='error' sx={{ mr: 4, pt: 1 }} />
-                          Are you sure you want to delete the category: {category.category_name} ?
-                        </DialogContentText>
-                      </DialogContent>
-                      <DialogActions>
-                        <Button variant='contained' onClick={() => deleteCategory(category.id)} autoFocus>
-                          Yes
-                        </Button>
-                        <Button variant='outlined' onClick={handleClose}>No</Button>
-                      </DialogActions>
-                    </Box>
-                  </Dialog>
+                  <Button onClick={() => deleteCategory(category.id)}><Delete /></Button>
                 </Box>
               </Accordion>
             </Grid>

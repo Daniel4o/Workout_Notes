@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                     ))}
                 </List>
             </Drawer>
-            <Box>
+            <Box sx={{width:'80vw'}}>
                 {children}
             </Box>
         </div>

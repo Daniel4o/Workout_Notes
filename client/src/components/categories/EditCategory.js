@@ -13,19 +13,17 @@ const EditCategory = (submitForm) => {
     }
 
     return (
-        <Grid  className='contentInput'>
-            <Card className='createPage'>
-                <Grid item sx={{ m: 16 }}>
-                <Typography variant='h4' sx={{ mb: 4, mt:6 }} align='center'>Edit Category</Typography>
+        <Grid  className='createPage'>
+            <Card>
                     <Formik
                         enableReinitialize
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}
-                    >
+                        >
                         {({ values, errors, touched, handleChange, handleSubmit }) => (
-                            <Form onSubmit={handleSubmit}>
-                                <Grid container direction="column" justifyContent="space-evenly" alignItems="center" >
+                            <Form onSubmit={handleSubmit} className='formContainer'>
+                                <h1>Edit Category</h1>
                                     <TextField
                                         label=" Category name"
                                         id="category_name"
@@ -37,11 +35,10 @@ const EditCategory = (submitForm) => {
                                         helperText={touched.category_name && errors.category_name}
                                     />
                                     <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
-                                    <Button color="secondary" variant="contained" href={('/categories')}>Cancel</Button>                        </Grid>
+                                    <Button color="secondary" variant="contained" href={('/categories')}>Cancel</Button>                       
                             </Form>
                         )}
                     </Formik>
-                </Grid>
             </Card>
         </Grid>
     )

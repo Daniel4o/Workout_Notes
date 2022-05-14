@@ -6,10 +6,7 @@ const useFormCategories = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [expanded, setExpanded] = useState(false);
-    const [open, setOpen] = useState(false);
-
     const [categories, setCategories] = useState([]);
-
 
     useEffect(async () => {
         try {
@@ -31,14 +28,6 @@ const useFormCategories = () => {
         setExpanded(isExpanded ? panel : false)
     }
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    }
-
     const deleteCategory = async (id) => {
         try {
             await fetch(`${BASE_URL}/categories/${id}`, {
@@ -52,7 +41,7 @@ const useFormCategories = () => {
         }
     }
 
-    return { error, isLoading, categories, expanded, handleClick, handleClickOpen, open, handleClose, deleteCategory }
+    return { error, isLoading, categories, expanded, handleClick,  deleteCategory }
 }
 
 export default useFormCategories

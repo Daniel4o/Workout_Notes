@@ -14,10 +14,8 @@ const EditExercise = (submitForm) => {
     }
 
     return (
-        <Grid container sx={{m:10}} className='content'>
-        <Card sx={{ maxWidth: 1000 }}> 
-        <Grid sx={{ m: 16 }}>
-            <Typography variant='h4' sx={{ mb: 4 }} align='center'>Edit Exercise</Typography>
+        <Grid className='createPage'>
+        <Card> 
             <Formik
                 enableReinitialize
                 initialValues={initialValues}
@@ -25,9 +23,9 @@ const EditExercise = (submitForm) => {
                 validationSchema={validationSchema}
             >
                 {({ values, errors, touched, handleChange, handleSubmit }) => (
-                    <Form onSubmit={handleSubmit} style={{width:300}}>
-                        <Grid container  direction="column" justifyContent="space-evenly" alignItems="center"   >
-                            <FormControl variant="standard" fullWidth>
+                    <Form onSubmit={handleSubmit} className='formContainer'>
+                        <h1 >Edit Exercise</h1>
+                            <FormControl >
                                 <TextField
                                     label=" Exercise name"
                                     id="exercise_name"
@@ -56,11 +54,9 @@ const EditExercise = (submitForm) => {
                             </FormControl>
                             <Button color="primary" variant="contained" type="submit" sx={{mt:4}}>Submit</Button>
                             <Button color="secondary" variant="contained" href={'/exercises'}>Cancel</Button>
-                        </Grid>
                     </Form>
                 )}
             </Formik>
-        </Grid>
         </Card>
         </Grid>
     )

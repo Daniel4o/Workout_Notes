@@ -11,7 +11,7 @@ export const menuItems = [
         path: '/users'
     },
     {
-        text: "Workout",
+        text: "Workouts",
         icon: <FactCheckOutlinedIcon color='secondary' />,
         path: '/workouts'
     },

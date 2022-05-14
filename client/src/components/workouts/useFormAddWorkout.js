@@ -153,6 +153,7 @@ const useFormAddWorkout = () => {
                 }
                 Promise.all(requests).then(() => {
                     console.log('done')
+                    navigate('/workouts')  
                 })
             })
         } catch (error) {
