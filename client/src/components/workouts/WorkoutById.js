@@ -1,9 +1,9 @@
 import useFormWorkoutById from "./useFormWorkoutById";
-import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog,DialogContent, DialogActions,Box, DialogTitle,DialogContentText } from '@mui/material'
+import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog, DialogContent, DialogActions, Box, DialogTitle, DialogContentText } from '@mui/material'
 import { Warning, Badge } from '@mui/icons-material';
 
 const WorkoutById = () => {
-  const { error, isLoading, workoutExercises,date, open, handleClose, handleClickOpen, deleteWorkout } = useFormWorkoutById()
+  const { error, isLoading, workoutExercises, date, open, handleClose, handleClickOpen, deleteWorkout } = useFormWorkoutById()
 
   if (isLoading) {
     return <Grid>Loading...</Grid>
@@ -17,7 +17,7 @@ const WorkoutById = () => {
         <h1>
           Workouts
         </h1>
-        <Typography sx={{mr:2}} align='right'>Date: {date}</Typography>
+        <Typography sx={{ mr: 2 }} align='right'>Date: {date}</Typography>
         <Table>
           <TableHead>
             <TableRow>
@@ -35,36 +35,36 @@ const WorkoutById = () => {
                 <TableCell align="right">{workout['workout_volume.reps']}</TableCell>
                 <TableCell align="right">{workout['workout_volume.weight']}</TableCell>
               </TableRow>
-                ))}
+            ))}
           </TableBody>
-          <div style={{justifyContent:'center',alignItems:'center'}}>
-          <Button variant='outlined' onClick={handleClickOpen}>Delete</Button>
-          {workoutExercises.map((workout) => (
-                    <Dialog
-                      open={open}
-                      onClose={handleClose}
-                      style={{ borderColor: 'red' }}
-                    >
-                      <Box sx={{ borderTop: 3, color: 'red' }}>
-                        <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
-                          Delete Workout
-                        </DialogTitle>
-                        <DialogContent>
-                          <DialogContentText color='black'>
-                            <Warning id='warning' fontSize='large' color='error' />
-                            Are you sure you want to delete the workout?
-                          </DialogContentText>
-                        </DialogContent>
-                        <DialogActions>
-                          <Button variant='contained' onClick={() => deleteWorkout(workout.id)} autoFocus>
-                            Yes
-                          </Button>
-                          <Button variant='outlined' onClick={handleClose}>No</Button>
-                        </DialogActions>
-                      </Box>
-                    </Dialog>
-                      ))}         
-          <Button variant='contained' href={('/workouts')}>Back To Workouts</Button>
+          <div style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Button variant='outlined' onClick={handleClickOpen}>Delete</Button>
+            {workoutExercises.map((workout) => (
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                style={{ borderColor: 'red' }}
+              >
+                <Box sx={{ borderTop: 3, color: 'red' }}>
+                  <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
+                    Delete Workout
+                  </DialogTitle>
+                  <DialogContent>
+                    <DialogContentText color='black'>
+                      <Warning id='warning' fontSize='large' color='error' />
+                      Are you sure you want to delete the workout?
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button variant='contained' onClick={() => deleteWorkout(workout.id)} autoFocus>
+                      Yes
+                    </Button>
+                    <Button variant='outlined' onClick={handleClose}>No</Button>
+                  </DialogActions>
+                </Box>
+              </Dialog>
+            ))}
+            <Button variant='contained' href={('/workouts')}>Back To Workouts</Button>
           </div>
         </Table>
       </Card>

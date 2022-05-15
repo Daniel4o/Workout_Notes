@@ -35,7 +35,7 @@ const useFormUsers = () => {
         }
     }
 
-    return { users, error, deleteUser, isLoading}
+    return { users, error, deleteUser, isLoading }
 }
 
 export default useFormUsers

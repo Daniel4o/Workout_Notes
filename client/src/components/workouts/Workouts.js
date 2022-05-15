@@ -4,7 +4,7 @@ import { Add, Badge } from '@mui/icons-material';
 import useFormWorkouts from './useFormWorkouts';
 
 const Workouts = () => {
-  const { workouts, error, isLoading} = useFormWorkouts();
+  const { workouts, error, isLoading } = useFormWorkouts();
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -45,7 +45,7 @@ const Workouts = () => {
                   <ListItem key={workout.id}>
                     <Button href={`/workouts/${workout.id}`}>
                       <ListItemIcon >
-                        <Badge sx={{ml:15}} />
+                        <Badge sx={{ ml: 15 }} />
                       </ListItemIcon>
                     </Button>
                   </ListItem>

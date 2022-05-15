@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const useFormGetUserById = () => {
     const BASE_URL = process.env.REACT_APP_URL
@@ -7,29 +7,27 @@ const useFormGetUserById = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [open, setOpen] = useState(false);
-    const {id} =useParams();
-    
+    const { id } = useParams();
     const [user, setUser] = useState([]);
-  
 
     useEffect(async () => {
         try {
             const response = await fetch(`${BASE_URL}/users/${id}`)
             return response.json()
                 .then(data => {
-                    data.map(user=> {
+                    data.map(user => {
                         setUser(user)
-                })
+                    })
                     setError(null)
                     setIsLoading(false)
-            })
-            
+                })
+
         } catch (error) {
             setError(error)
             setIsLoading(false)
         }
     }, [BASE_URL]);
-   
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -51,7 +49,7 @@ const useFormGetUserById = () => {
         }
     }
 
-    return { error, isLoading, user, open, handleClickOpen, handleClose, deleteUser  }
+    return { error, isLoading, user, open, handleClickOpen, handleClose, deleteUser }
 }
 
 export default useFormGetUserById

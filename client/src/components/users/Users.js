@@ -42,7 +42,7 @@ const Users = () => {
                                     <TableCell >{user.height}</TableCell>
                                     <TableCell >{user.weight} </TableCell>
                                     <TableCell>
-                                        <ListItem 
+                                        <ListItem
                                             key={user.id}
                                         >
                                             <Button href={`/users/${user.id}`}>

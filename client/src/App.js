@@ -34,7 +34,7 @@ function App() {
             <Route path='/exercises/' element={<Exercises />} />
             <Route path='/workouts' element={<Workouts />} />
             <Route path='/workouts/add' element={<AddWorkout />} />
-            <Route path='/workouts/:id' element={<WorkoutById />}/>
+            <Route path='/workouts/:id' element={<WorkoutById />} />
           </Routes>
         </Layout>
       </Router>

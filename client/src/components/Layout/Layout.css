@@ -7,15 +7,16 @@
 }
 
 .root {
-    display:flex;
+    display: flex;
     background-color: blue
 }
-  .appBar {
-      margin-left: 15rem;
-  }
 
-  .date {
-      margin-right:auto;
+.appBar {
+    margin-left: 15rem;
+}
+
+.date {
+    margin-right: auto;
 }
 
 .list {
@@ -26,47 +27,63 @@
 }
 
 h2 {
-    left:50%
+    left: 50%
 }
 
 .content {
-    justify-content:center;
-    display:flex;
+    justify-content: center;
+    display: flex;
     flex-direction: column;
     width: 100%;
 }
 
 .contentTable {
-    height:100vh;
-    display:flex;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
     width: 80vw;
     margin-top: 70px;
 }
 
 .contentInput {
-    justify-content:center;
-    align-items:center;
-    height:100%;
-    display:flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    display: flex;
 }
 
-table th:nth-child(even){background-color: black; color:white}
-table th:nth-child(odd){background-color: black; color:white}
-table tr:nth-child(even){background-color: #f2f2f2;}
-table tr:nth-child(odd){background-color: #f7dede;}
-table tr:hover {background-color: #ddd;}
+table th:nth-child(even) {
+    background-color: black;
+    color: white
+}
+
+table th:nth-child(odd) {
+    background-color: black;
+    color: white
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f7dede;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
 
 table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: center;
-  background-color: #0c0b0c;
-  color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0c0b0c;
+    color: white;
 }
 
 tr {
-text-align: center;
+    text-align: center;
 }
 
 .createPage {
@@ -75,7 +92,7 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center
-  }
+}
 
 .formContainer {
     display: flex;
@@ -85,7 +102,7 @@ text-align: center;
     height: auto;
     padding: 20px;
     align-items: center;
-  }
+}
 
 .createPageWorkout {
     font-family: Arial, Helvetica, sans-serif;
@@ -93,9 +110,9 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .formContainerWorkout {
+.formContainerWorkout {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,120 +120,149 @@ text-align: center;
     height: auto;
     padding: 20px;
     align-items: center;
-  }
+}
 
- .exerciseCard {
-     width:600px;
-     padding-top: 40px;
-     padding-bottom:40px;
-     margin-top: 80px;
-     margin-bottom: 40px;
-     justify-content: center;
- }
+.exerciseCard {
+    width: 600px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
 
- .exerciseContent{
+.exerciseContent {
     width: 400px;
     margin-left: 100px;
     justify-content: center;
     align-items: center;
- }
+}
 
- .categoriesContent {
-     align-items: center;
-     display: flex;
-     justify-content: space-evenly;
-     flex-direction: column;
-     margin-top:  10px;
- }
+.categoriesContent {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 10px;
+}
 
- .tableCard {
-    width:900px;
-    padding-bottom:40px;
+.tableCard {
+    width: 900px;
+    padding-bottom: 40px;
     margin-top: 80px;
     margin-bottom: 40px;
- }
+}
 
- .tableCardWorkout {
-    width:900px;
+.tableCardWorkout {
+    width: 900px;
     margin-top: 80px;
     margin-bottom: 20px;
- }
+}
 
- .tableCardWorkoutById {
-    width:900px;
-    padding-bottom:40px;
+.tableCardWorkoutById {
+    width: 900px;
+    padding-bottom: 40px;
     margin-top: 80px;
     margin-bottom: 40px;
- }
+}
 
- .userCard {
+.userCard {
     justify-content: center;
     align-items: center;
     display: flex;
-    width:500px;
-    padding-bottom:40px;
+    width: 500px;
+    padding-bottom: 40px;
     margin-top: 80px;
     margin-bottom: 40px;
- }
+}
 
- .workoutCard {
+.workoutCard {
     width: 400px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     display: flex;
-    padding-bottom:40px;
+    padding-bottom: 40px;
     margin-top: 120px;
     margin-bottom: 50px;
- }
+}
 
-#divider {color:black; border:16px; margin-top:2px}
-#buttonAdd{ margin-top: 8px; margin-bottom: 4px; }
-#warning {margin-right: 32px; padding-top: 8px;}
+#divider {
+    color: black;
+    border: 16px;
+    margin-top: 2px
+}
 
- .tableCardWorkout table th:nth-child(1){text-align: right;}
- .tableCardWorkout table th:nth-child(2){text-align: right;}
- .tableCardWorkout table th:nth-child(3){text-align:inherit;}
- .tableCardWorkout table th:nth-child(4){text-align:inherit;}
- .tableCardWorkout table td:nth-child(1){text-align: right;}
- .tableCardWorkout table td:nth-child(2){text-align: right;}
- .tableCardWorkout table td:nth-child(3){text-align: inherit;}
- .tableCardWorkout table td:nth-child(4){text-align: right;}
+#buttonAdd {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
 
- .tableCardWorkoutById table th{text-align: justify;}
- .tableCardWorkoutById table td{text-align: justify;}
+#warning {
+    margin-right: 32px;
+    padding-top: 8px;
+}
 
-#exercisesList {justify-content: center;width: 400px;}
- .tableCard table th{text-align: center;} 
- .tableCard table th:nth-child(5){text-align:justify;} 
- .tableCard table td{text-align: center;}
+.tableCardWorkout table th:nth-child(1) {
+    text-align: right;
+}
 
- h1{
-     justify-content: center;
-     display: flex;
-     margin-bottom: 40px;
-     margin-top: 10px;
- }
+.tableCardWorkout table th:nth-child(2) {
+    text-align: right;
+}
 
+.tableCardWorkout table th:nth-child(3) {
+    text-align: inherit;
+}
 
+.tableCardWorkout table th:nth-child(4) {
+    text-align: inherit;
+}
 
+.tableCardWorkout table td:nth-child(1) {
+    text-align: right;
+}
 
+.tableCardWorkout table td:nth-child(2) {
+    text-align: right;
+}
 
-  
+.tableCardWorkout table td:nth-child(3) {
+    text-align: inherit;
+}
 
- 
+.tableCardWorkout table td:nth-child(4) {
+    text-align: right;
+}
 
+.tableCardWorkoutById table th {
+    text-align: justify;
+}
 
+.tableCardWorkoutById table td {
+    text-align: justify;
+}
 
+#exercisesList {
+    justify-content: center;
+    width: 400px;
+}
 
+.tableCard table th {
+    text-align: center;
+}
 
+.tableCard table th:nth-child(5) {
+    text-align: justify;
+}
 
+.tableCard table td {
+    text-align: center;
+}
 
-  
-
-
-
-
-
-
-
+h1 {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}

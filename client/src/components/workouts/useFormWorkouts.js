@@ -59,14 +59,14 @@ const useFormWorkouts = () => {
                     setError(null)
                     setIsLoading(false)
                 })
-            } catch (error) {
-                setError(error)
-                setIsLoading(false)
-            }
+        } catch (error) {
+            setError(error)
+            setIsLoading(false)
         }
-        
-    
-   
+    }
+
+
+
     const handleClickOpen = () => {
         setOpen(true);
     }

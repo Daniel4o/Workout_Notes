@@ -29,7 +29,7 @@ export default function Layout({ children }) {
                 className='drawer' variant='permanent' anchor='left'
                 sx={{
                     width: 240, flexShrink: 0, '& .MuiDrawer-paper':
-                    {   width: 240,  boxSizing: 'border-box',},
+                        { width: 240, boxSizing: 'border-box', },
                 }}
             >
                 <div>
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                     ))}
                 </List>
             </Drawer>
-            <Box sx={{width:'80vw'}}>
+            <Box sx={{ width: '80vw' }}>
                 {children}
             </Box>
         </div>
