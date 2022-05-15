@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     const location = useLocation();
 
     return (
-        <div className='root' style={{backgroundColor:'blue'}}>
+        <div className='root'>
             <AppBar
                 position='fixed'
                 eleveation={0}

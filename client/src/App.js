@@ -22,8 +22,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route exact='/' />
-            <Route path='/users' element={<Users />} />
+            <Route exact='/users' element={<Users />} />
             <Route path='/users/:id' element={<UserById />} />
             <Route path='/users/add' element={<AddUser />} />
             <Route path='/users/edit/:id' element={<EditUser />} />

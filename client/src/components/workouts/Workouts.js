@@ -1,11 +1,10 @@
-import * as React from 'react';
-import { Table, TableBody, TableCell, TableHead, TableRow, Box } from '@mui/material';
-import { Grid, Card, Button, ListItem, ListItemIcon, Divider, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { Delete, Edit, Add, Warning, Badge } from '@mui/icons-material';
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Grid, Card, Button, ListItem, ListItemIcon, Divider } from '@mui/material';
+import { Add, Badge } from '@mui/icons-material';
 import useFormWorkouts from './useFormWorkouts';
 
 const Workouts = () => {
-  const { workouts, deleteWorkout, error, isLoading} = useFormWorkouts();
+  const { workouts, error, isLoading} = useFormWorkouts();
 
   if (isLoading) {
     return <div>Loading...</div>
@@ -33,7 +32,7 @@ const Workouts = () => {
               <TableCell>№</TableCell>
               <TableCell>User</TableCell>
               <TableCell>Date</TableCell>
-              <TableCell >View Details</TableCell>
+              <TableCell>View Details</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -45,17 +44,15 @@ const Workouts = () => {
                 <TableCell>
                   <ListItem key={workout.id}>
                     <Button href={`/workouts/${workout.id}`}>
-                      <ListItemIcon  >
-                        <Badge />
+                      <ListItemIcon >
+                        <Badge sx={{ml:15}} />
                       </ListItemIcon>
                     </Button>
                   </ListItem>
                 </TableCell>
-                <TableCell align='center'>
-                </TableCell>
               </TableRow>
             ))}
-            <Divider fullWidth id='divider' />
+            <Divider fullwidth='true' id='divider' />
             <TableRow >
               <TableCell rowSpan={3} />
               <TableCell colSpan={2}>Overall</TableCell>
@@ -63,10 +60,6 @@ const Workouts = () => {
             <TableRow>
               <TableCell>Workouts</TableCell>
               <TableCell align="right">{workouts.length}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell >Favorite Muscle Trained</TableCell>
-              <TableCell align="right">(favorite muscle trained)</TableCell>
             </TableRow>
           </TableBody>
         </Table>

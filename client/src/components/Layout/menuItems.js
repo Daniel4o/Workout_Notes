@@ -25,9 +25,4 @@ export const menuItems = [
         icon: <AccessibilityNewOutlinedIcon color='secondary' />,
         path: '/categories'
     },
-    {
-        text: "Settings",
-        icon: <SettingsOutlinedIcon color='secondary' />,
-        path: '/settings'
-    },
 ]

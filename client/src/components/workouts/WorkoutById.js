@@ -1,6 +1,6 @@
 import useFormWorkoutById from "./useFormWorkoutById";
 import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog,DialogContent, DialogActions,Box, DialogTitle,DialogContentText } from '@mui/material'
-import { Delete, Edit, Add, Warning, Badge } from '@mui/icons-material';
+import { Warning, Badge } from '@mui/icons-material';
 
 const WorkoutById = () => {
   const { error, isLoading, workoutExercises,date, open, handleClose, handleClickOpen, deleteWorkout } = useFormWorkoutById()

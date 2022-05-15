@@ -7,7 +7,6 @@ const useFormWorkouts = () => {
     const [error, setError] = useState(null);
     const [open, setOpen] = useState(false);
 
-    const [workoutsUser, setWorkoutsUser] = useState([]);
     const [workouts, setWorkouts] = useState([]);
     const [workoutVolume, setWorkoutVolume] = useState([]);
     const [deletedCategories, setDeletedCategories] = useState([]);
@@ -60,63 +59,24 @@ const useFormWorkouts = () => {
                     setError(null)
                     setIsLoading(false)
                 })
-        } catch (error) {
-            setError(error)
-            setIsLoading(false)
-        }
-    }
-
-    const exercise = workoutVolume.map(exercise => exercise['workout_volume.exercise_id'])
-    /* function findDuplicates(arr) {
-        var obj={};
-        for (var i of arr) {
-            if(obj[i] ==1) {
-                console.log(i)
-            }
-            obj[i]=1;
-        }
-    }
-    findDuplicates(exercise) */
-
-    var mf = 1;
-    var m = 0;
-    var exerciseName;
-    for (var i = 0; i < exercise.length; i++) {
-        for (var j = i; j < exercise.length; j++) {
-            if (exercise[i] == exercise[j])
-                m++;
-            if (mf < m) {
-                mf = m;
-                exerciseName = exercise[i];
+            } catch (error) {
+                setError(error)
+                setIsLoading(false)
             }
         }
-        m = 0;
-    }
-    //exerciseName = exercises.find(exercise => exercise.id === exerciseName).exercise_name
-    console.log(exerciseName)
-
+        
+    
+   
     const handleClickOpen = () => {
         setOpen(true);
-    };
+    }
 
     const handleClose = () => {
         setOpen(false);
     }
-    const deleteWorkout = async (id) => {
-        try {
-            await fetch(`${BASE_URL}/workouts/${id}`, {
-                method: "DELETE",
-            }).then(response => {
-                setWorkouts(workouts.filter(workout => workout.id !== id))
-                setOpen(false)
-                return response.json()
-            })
-        } catch (error) {
-            setError(error)
-        }
-    }
 
-    return { workouts, exercises, workoutVolume, error, deleteWorkout, isLoading, open, setOpen, handleClose, handleClickOpen }
+
+    return { workouts, workoutVolume, error, isLoading, open, setOpen, handleClose, handleClickOpen }
 }
 
 export default useFormWorkouts
