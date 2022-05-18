@@ -1,14 +1,14 @@
 import useFormExercises from "./useFormExercises";
-import { List, ListItem, ListItemText, Button, IconButton, Grid, Checkbox, FormControlLabel, Divider, Card } from '@mui/material';
+import { List, ListItem, ListItemText, Button, IconButton, Grid, Checkbox, FormControlLabel, Divider, Card, LinearProgress } from '@mui/material';
 import { Delete, Edit, Add } from '@mui/icons-material';
 import { useState } from 'react';
 
 const Exercises = () => {
-    const { deletedCategories, error, isLoading, exercises, deleteExercise } = useFormExercises();
+    const { error, isLoading, exercises, deleteExercise } = useFormExercises();
     const [showCategories, setShowCategories] = useState(false);
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return (<LinearProgress color="secondary" />)
     }
     if (error) {
         return <div>There was an error: {error}</div>

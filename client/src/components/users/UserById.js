@@ -1,12 +1,12 @@
 import useFormUserById from "./useFormUserById";
-import { Button, Divider, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar, Card, Dialog, DialogContent, DialogContentText, DialogActions, DialogTitle } from "@mui/material";
+import { Button, Divider, Box, List, ListItem, Grid, ListItemAvatar, ListItemText, Avatar, Card, Dialog, DialogContent, DialogContentText, DialogActions, DialogTitle, LinearProgress } from "@mui/material";
 import { WorkOutlineOutlined, Edit, Delete, Warning } from '@mui/icons-material';
 
 const GetUserById = () => {
     const { error, isLoading, user, handleClickOpen, handleClose, open, deleteUser } = useFormUserById()
 
     if (isLoading) {
-        return <Grid>Loading...</Grid>
+        return (<LinearProgress color="secondary" />)
     }
     if (error) {
         return <Grid>There was an error: {error}</Grid>

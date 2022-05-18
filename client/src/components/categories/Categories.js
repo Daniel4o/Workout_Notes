@@ -1,12 +1,12 @@
 import useFormCategories from './useFormCategories'
-import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, Card, Typography, Box, } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, Card, Typography, Box, LinearProgress } from '@mui/material';
 import { Delete, Edit, Add, ExpandMore } from '@mui/icons-material';
 
 const Categories = () => {
   const { error, isLoading, categories, expanded, handleClick, deleteCategory } = useFormCategories();
 
   if (isLoading) {
-    return (<div>Loading...</div>)
+    return (<LinearProgress color="secondary" />)
   }
   if (error) {
     return <Grid>There was an error: {error}</Grid>

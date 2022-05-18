@@ -1,12 +1,12 @@
 import { Formik, Form } from "formik";
-import { TextField, Card, Grid, Button,  } from '@mui/material';
+import { TextField, Card, Grid, Button, LinearProgress } from '@mui/material';
 import useFormEditCategory from './useFormEditCategory';
 
 const EditCategory = (submitForm) => {
     const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormEditCategory(submitForm)
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return (<LinearProgress color="secondary" />)
     }
     if (error) {
         return <div>There was an error: {error}</div>

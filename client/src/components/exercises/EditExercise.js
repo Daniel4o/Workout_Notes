@@ -1,12 +1,12 @@
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button, MenuItem, FormControl, Card } from '@mui/material';
+import { TextField, Grid, Button, MenuItem, FormControl, Card, LinearProgress } from '@mui/material';
 import useFormEditExercise from './useFormEditExercise';
 
 const EditExercise = (submitForm) => {
     const { initialValues, validationSchema, error, isLoading, onSubmit, categoryNames } = useFormEditExercise(submitForm)
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return (<LinearProgress color="secondary" />)
     }
     if (error) {
         return <div>There was an error: {error}</div>

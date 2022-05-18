@@ -1,12 +1,12 @@
 import useFormWorkoutById from "./useFormWorkoutById";
-import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog, DialogContent, DialogActions, Box, DialogTitle, DialogContentText } from '@mui/material'
+import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog, LinearProgress, DialogContent, DialogActions, Box, DialogTitle, DialogContentText } from '@mui/material'
 import { Warning, Badge } from '@mui/icons-material';
 
 const WorkoutById = () => {
   const { error, isLoading, workoutExercises, date, open, handleClose, handleClickOpen, deleteWorkout } = useFormWorkoutById()
 
   if (isLoading) {
-    return <Grid>Loading...</Grid>
+    return (<LinearProgress color="secondary" />)
   }
   if (error) {
     return <Grid>There was an error: {error}</Grid>

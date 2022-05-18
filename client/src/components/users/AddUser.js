@@ -1,12 +1,12 @@
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button, FormControl, Card, Typography } from '@mui/material';
+import { TextField, Grid, Button, FormControl, Card, Typography, LinearProgress } from '@mui/material';
 import useFormAddUser from './useFormAddUser';
 
 const AddUser = (submitForm) => {
     const { initialValues, validationSchema, error, isLoading, onSubmit } = useFormAddUser(submitForm)
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return (<LinearProgress color="secondary" />)
     }
     if (error) {
         return <div>There was an error: {error}</div>
