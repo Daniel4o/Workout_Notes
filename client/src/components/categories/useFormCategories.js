@@ -41,7 +41,7 @@ const useFormCategories = () => {
         }
     }
 
-    return { error, isLoading, categories, expanded, handleClick,  deleteCategory }
+    return { error, isLoading, categories, expanded, handleClick, deleteCategory }
 }
 
 export default useFormCategories

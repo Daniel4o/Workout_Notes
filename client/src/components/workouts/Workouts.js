@@ -1,6 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { Grid, Card, Button, ListItem, ListItemIcon, Divider } from '@mui/material';
-import { Add, Badge } from '@mui/icons-material';
+import { Grid, Card, Button, Divider } from '@mui/material';
+import { Add, Assignment } from '@mui/icons-material';
 import useFormWorkouts from './useFormWorkouts';
 
 const Workouts = () => {
@@ -41,14 +41,10 @@ const Workouts = () => {
                 <TableCell>{index + 1}.</TableCell>
                 <TableCell>{workout['userWorkouts.name']}</TableCell>
                 <TableCell>{workout.date}</TableCell>
-                <TableCell>
-                  <ListItem key={workout.id}>
-                    <Button href={`/workouts/${workout.id}`}>
-                      <ListItemIcon >
-                        <Badge sx={{ ml: 15 }} />
-                      </ListItemIcon>
-                    </Button>
-                  </ListItem>
+                <TableCell >
+                  <Button href={`/workouts/${workout.id}`}>
+                    <Assignment />
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

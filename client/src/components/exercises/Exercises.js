@@ -1,10 +1,10 @@
 import useFormExercises from "./useFormExercises";
-import { List, ListItem, ListItemText, Button, IconButton, Grid, Box, Checkbox, FormControlLabel, FormGroup, Divider, Card, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { Delete, Edit, Add, Warning } from '@mui/icons-material';
+import { List, ListItem, ListItemText, Button, IconButton, Grid, Checkbox, FormControlLabel, Divider, Card } from '@mui/material';
+import { Delete, Edit, Add } from '@mui/icons-material';
 import { useState } from 'react';
 
 const Exercises = () => {
-    const {  deletedCategories, error, isLoading, exercises, deleteExercise } = useFormExercises();
+    const { deletedCategories, error, isLoading, exercises, deleteExercise } = useFormExercises();
     const [showCategories, setShowCategories] = useState(false);
 
     if (isLoading) {
@@ -46,9 +46,9 @@ const Exercises = () => {
                                         primary={exercise.exercise_name}
                                         secondary={showCategories ? exercise["exerciseCategories.category_name"] : null}
                                     />
-                                <IconButton onClick={() => deleteExercise(exercise.id)}>
-                                    <Delete />
-                                </IconButton>
+                                    <IconButton onClick={() => deleteExercise(exercise.id)}>
+                                        <Delete />
+                                    </IconButton>
                                 </ListItem>
                             </List>
                         </Card>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { Grid, ListItem, Button, ListItemIcon, Card, Paper } from '@mui/material';
+import { Grid, ListItem, Button, ListItemIcon, Card, Paper, Box } from '@mui/material';
 import useFormUsers from './useFormUsers';
 import { Add, Badge } from '@mui/icons-material';
 
@@ -8,7 +8,12 @@ const Users = () => {
     const { users, error, isLoading } = useFormUsers();
 
     if (isLoading) {
-        return <div>Loading...</div>
+        return <Box
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+        >Loading...</Box>
     }
     if (error) {
         return <div>There was an error: {error}</div>

@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button, Select, MenuItem, InputLabel, FormControl, Typography, Box, Card } from '@mui/material';
+import { TextField, Grid, Button, MenuItem, FormControl, Card } from '@mui/material';
 import useFormEditExercise from './useFormEditExercise';
 
 const EditExercise = (submitForm) => {
@@ -15,16 +14,16 @@ const EditExercise = (submitForm) => {
 
     return (
         <Grid className='createPage'>
-        <Card> 
-            <Formik
-                enableReinitialize
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-            >
-                {({ values, errors, touched, handleChange, handleSubmit }) => (
-                    <Form onSubmit={handleSubmit} className='formContainer'>
-                        <h1 >Edit Exercise</h1>
+            <Card>
+                <Formik
+                    enableReinitialize
+                    initialValues={initialValues}
+                    onSubmit={onSubmit}
+                    validationSchema={validationSchema}
+                >
+                    {({ values, errors, touched, handleChange, handleSubmit }) => (
+                        <Form onSubmit={handleSubmit} className='formContainer'>
+                            <h1 >Edit Exercise</h1>
                             <FormControl >
                                 <TextField
                                     label=" Exercise name"
@@ -52,12 +51,12 @@ const EditExercise = (submitForm) => {
                                     )}
                                 </TextField>
                             </FormControl>
-                            <Button color="primary" variant="contained" type="submit" sx={{mt:4}}>Submit</Button>
+                            <Button color="primary" variant="contained" type="submit" sx={{ mt: 4 }}>Submit</Button>
                             <Button color="secondary" variant="contained" href={'/exercises'}>Cancel</Button>
-                    </Form>
-                )}
-            </Formik>
-        </Card>
+                        </Form>
+                    )}
+                </Formik>
+            </Card>
         </Grid>
     )
 }

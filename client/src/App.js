@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Grid } from '@mui/material'
+import { Grid } from '@mui/material';
+import HomePage from './components/homePage/HomePage';
 import Users from './components/users/Users';
 import EditUser from './components/users/EditUser';
 import AddUser from './components/users/AddUser';
@@ -22,7 +23,8 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route exact='/users' element={<Users />} />
+          <Route path='/' element={<HomePage />} />
+            <Route path='/users' element={<Users />} />
             <Route path='/users/:id' element={<UserById />} />
             <Route path='/users/add' element={<AddUser />} />
             <Route path='/users/edit/:id' element={<EditUser />} />

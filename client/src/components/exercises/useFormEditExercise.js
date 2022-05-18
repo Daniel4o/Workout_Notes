@@ -6,7 +6,7 @@ const useFormAddExercise = () => {
     const BASE_URL = process.env.REACT_APP_URL
 
     const navigate = useNavigate();
-    const {id} = useParams();
+    const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -15,7 +15,7 @@ const useFormAddExercise = () => {
     const [categoryNames, setCategoryNames] = useState([]);
 
     const [categoryId, setCategoryId] = useState([]);
-    const [exerciseName, setExerciseName]= useState([]);
+    const [exerciseName, setExerciseName] = useState([]);
 
     useEffect(() => {
         getExercises();
@@ -60,24 +60,24 @@ const useFormAddExercise = () => {
         try {
             const response = await fetch(`${BASE_URL}/exercises/${id}`)
             return response.json()
-            .then(data => {
-                setCategoryId(data.category_id)
-                setExerciseName(data.exercise_name)
-                setError(null)
-                setIsLoading(false)
-            })
+                .then(data => {
+                    setCategoryId(data.category_id)
+                    setExerciseName(data.exercise_name)
+                    setError(null)
+                    setIsLoading(false)
+                })
         } catch (error) {
             setError(error)
             setIsLoading(false)
         }
     }
 
-    for (var i=0; i< exercises.length; i++) {
-        if(exercises[i] === exerciseName) {
-            exercises.splice(i,1)
+    for (var i = 0; i < exercises.length; i++) {
+        if (exercises[i] === exerciseName) {
+            exercises.splice(i, 1)
         }
     }
-    
+
     const category = categories.filter(category => category.id === categoryId)
     const currCategoryName = category.map(category => category.category_name).toString()
 

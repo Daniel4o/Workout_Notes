@@ -1,10 +1,15 @@
 import FactCheckOutlinedIcon from '@mui/icons-material/FactCheckOutlined';
 import FitnessCenterOutlinedIcon from '@mui/icons-material/FitnessCenterOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
 
 export const menuItems = [
+    {
+        text: "Home",
+        icon: <HomeOutlinedIcon color='secondary' />,
+        path: '/'
+    },
     {
         text: "Users",
         icon: <PersonOutlineOutlinedIcon color='secondary' />,

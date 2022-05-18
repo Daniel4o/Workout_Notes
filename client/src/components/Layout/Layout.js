@@ -1,5 +1,5 @@
 import './Layout.css';
-import { Drawer, Typography, Box, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Card, Grid } from '@mui/material';
+import { Drawer, Typography, Box, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { menuItems } from './menuItems';
@@ -43,7 +43,7 @@ export default function Layout({ children }) {
                             button
                             key={item.text}
                             onClick={() => navigate(item.path)}
-                            style={{ background: location.pathname == item.path ? "#f4f4f4" : null }}
+                            style={{ background: location.pathname === item.path ? "#f4f4f4" : null }}
                         >
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText primary={item.text} />
@@ -51,7 +51,7 @@ export default function Layout({ children }) {
                     ))}
                 </List>
             </Drawer>
-            <Box sx={{ width: '80vw' }}>
+            <Box className='children'>
                 {children}
             </Box>
         </div>

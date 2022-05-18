@@ -1,6 +1,6 @@
 import useFormCategories from './useFormCategories'
-import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, Card, Typography, Box, Alert, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { Delete, Edit, Add, ExpandMore, Warning } from '@mui/icons-material';
+import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, Card, Typography, Box, } from '@mui/material';
+import { Delete, Edit, Add, ExpandMore } from '@mui/icons-material';
 
 const Categories = () => {
   const { error, isLoading, categories, expanded, handleClick, deleteCategory } = useFormCategories();
@@ -13,11 +13,11 @@ const Categories = () => {
   }
 
   return (
-    <Grid container  className='content' >
+    <Grid container className='content' >
       <Card className='exerciseCard'>
         <h1>Categories</h1>
         <Button variant='contained' sx={{ ml: 55, mb: 2 }} href={('/categories/add')} startIcon={<Add />}>
-          Add 
+          Add
         </Button>
         <Divider />
         {categories.map(category => {
@@ -27,7 +27,7 @@ const Categories = () => {
           }
           return (
             <Grid className='categoriesContent' >
-              <Accordion 
+              <Accordion
                 key={category.id}
                 expanded={expanded === category.id}
                 onChange={handleClick(category.id)}
