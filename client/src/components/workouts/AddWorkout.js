@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import { TextField, Grid, MenuItem, Button, FormControl, Card, LinearProgress } from '@mui/material';
 import useFormAddWorkout from './useFormAddWorkout';
 
+
 const AddWorkout = (submitForm) => {
     const { initialValues, validationSchema, error, isLoading, onSubmit, userNames, exerciseNames, inputFields, handleChangeInput, handleAddClick, handleRemoveClick } = useFormAddWorkout(submitForm)
 

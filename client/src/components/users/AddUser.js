@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import { TextField, Grid, Button, FormControl, Card, Typography, LinearProgress } from '@mui/material';
+import { TextField, Grid, Button, FormControl, Card, LinearProgress } from '@mui/material';
 import useFormAddUser from './useFormAddUser';
 
 const AddUser = (submitForm) => {
@@ -9,7 +9,7 @@ const AddUser = (submitForm) => {
         return (<LinearProgress color="secondary" />)
     }
     if (error) {
-        return <div>There was an error: {error}</div>
+        return <h2>There was an error: {error}</h2>
     }
 
     return (

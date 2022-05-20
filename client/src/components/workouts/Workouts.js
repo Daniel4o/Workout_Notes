@@ -2,6 +2,7 @@ import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 import { Grid, Card, Button, Divider, LinearProgress } from '@mui/material';
 import { Add, Assignment } from '@mui/icons-material';
 import useFormWorkouts from './useFormWorkouts';
+import './Workouts.css';
 
 const Workouts = () => {
   const { workouts, error, isLoading } = useFormWorkouts();
@@ -10,7 +11,7 @@ const Workouts = () => {
     return (<LinearProgress color="secondary" />)
   }
   if (error) {
-    return <div>There was an error: {error}</div>
+    return <h2>There was an error: {error}</h2>
   }
 
   return (

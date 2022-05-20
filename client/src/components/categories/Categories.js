@@ -1,6 +1,7 @@
 import useFormCategories from './useFormCategories'
 import { Accordion, AccordionDetails, AccordionSummary, Button, Divider, Grid, Card, Typography, Box, LinearProgress } from '@mui/material';
 import { Delete, Edit, Add, ExpandMore } from '@mui/icons-material';
+import './Categories.css'
 
 const Categories = () => {
   const { error, isLoading, categories, expanded, handleClick, deleteCategory } = useFormCategories();
@@ -9,14 +10,14 @@ const Categories = () => {
     return (<LinearProgress color="secondary" />)
   }
   if (error) {
-    return <Grid>There was an error: {error}</Grid>
+    return <h2>There was an error: {error}</h2>
   }
 
   return (
     <Grid container className='content' >
       <Card className='exerciseCard'>
         <h1>Categories</h1>
-        <Button variant='contained' sx={{ ml: 55, mb: 2 }} href={('/categories/add')} startIcon={<Add />}>
+        <Button variant='contained' id='addCategory' href={('/categories/add')} startIcon={<Add />}>
           Add
         </Button>
         <Divider />
@@ -35,10 +36,10 @@ const Categories = () => {
                 <AccordionSummary
                   expandIcon={<ExpandMore />}
                 >
-                  <Typography sx={{ width: '30%', flexShrink: 0, mr: 4 }}>
+                  <Typography className='categoryH'>
                     {category.category_name}
                   </Typography>
-                  <Typography sx={{ color: 'text.secondary' }}> Exercises:</Typography>
+                  <Typography  className='listExercise'> Exercises:</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>

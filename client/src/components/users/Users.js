@@ -3,6 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 import { Grid, ListItem, Button, ListItemIcon, Card, Paper, LinearProgress } from '@mui/material';
 import useFormUsers from './useFormUsers';
 import { Add, Badge } from '@mui/icons-material';
+import './Users.css';
 
 const Users = () => {
     const { users, error, isLoading } = useFormUsers();
@@ -11,7 +12,7 @@ const Users = () => {
         return (<LinearProgress color="secondary" />)
     }
     if (error) {
-        return <div>There was an error: {error}</div>
+        return <h2>There was an error: {error}</h2>
     }
 
     return (

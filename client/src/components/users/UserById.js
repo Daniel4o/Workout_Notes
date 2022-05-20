@@ -9,7 +9,7 @@ const GetUserById = () => {
         return (<LinearProgress color="secondary" />)
     }
     if (error) {
-        return <Grid>There was an error: {error}</Grid>
+        return <h2>There was an error: {error}</h2>
     }
 
     return (
@@ -50,12 +50,12 @@ const GetUserById = () => {
                         </Button>
                         <Button onClick={handleClickOpen} endIcon={<Delete />}>Delete</Button>
                         <Dialog
+                            className='dialog'
                             open={open}
                             onClose={handleClose}
-                            style={{ borderColor: 'red' }}
                         >
-                            <Box sx={{ borderTop: 3, color: 'red' }}>
-                                <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
+                            <Box className='dialogBox'>
+                                <DialogTitle className='dialogTitle'>
                                     Delete User
                                 </DialogTitle>
                                 <DialogContent>

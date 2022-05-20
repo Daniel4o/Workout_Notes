@@ -27,236 +27,23 @@
     margin-top: 10rem;
 }
 
-h2 {
-    left: 50%
-}
-
 .children {
     min-height: 100vh;
     margin-top: 20px;
     width: 80vw
 }
-.homePage {
- display:flex;
- flex-direction: column;
- background-color: white;
- min-height: 100vh;
 
-}
 
-.content {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    display:flex;
-}
 
-table th:nth-child(even) {
-    background-color: black;
-    color: white
-}
 
-table th:nth-child(odd) {
-    background-color: black;
-    color: white
-}
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
 
-table tr:nth-child(odd) {
-    background-color: #f7dede;
-}
 
-table tr:hover {
-    background-color: #ddd;
-}
 
-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #0c0b0c;
-    color: white;
-}
 
-tr {
-    text-align: center;
-}
 
-.createPage {
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 150px;
-}
 
-.formContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    padding: 20px;
-    align-items: center;
-}
 
-.createPageWorkout {
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.formContainerWorkout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    height: auto;
-    padding: 20px;
-    align-items: center;
-}
 
-.exerciseCard {
-    width: 600px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-    justify-content: center;
-}
 
-.exerciseContent {
-    width: 400px;
-    margin-left: 100px;
-    justify-content: center;
-    align-items: center;
-}
-
-.categoriesContent {
-    align-items: center;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
-.tableCard {
-    width: 900px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-}
-
-.tableCardWorkout {
-    width: 900px;
-    margin-bottom: 20px;
-}
-
-.tableCardWorkoutById {
-    width: 900px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-}
-
-.userCard {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 500px;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
-}
-
-.workoutCard {
-    width: 400px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    display: flex;
-    padding-bottom: 40px;
-    margin-top: 120px;
-    margin-bottom: 50px;
-}
-
-#divider {
-    color: black;
-    border: 16px;
-    margin-top: 2px
-}
-
-#buttonAdd {
-    margin-top: 8px;
-    margin-bottom: 4px;
-}
-
-#warning {
-    margin-right: 32px;
-    padding-top: 8px;
-}
-
-.tableCardWorkout table th:nth-child(1) {
-    text-align: right;
-}
-
-.tableCardWorkout table th:nth-child(2) {
-    text-align: right;
-}
-
-.tableCardWorkout table th:nth-child(3) {
-    text-align: inherit;
-}
-
-.tableCardWorkout table th:nth-child(4) {
-    text-align: inherit;
-}
-
-.tableCardWorkout table td:nth-child(1) {
-    text-align: right;
-}
-
-.tableCardWorkout table td:nth-child(2) {
-    text-align: right;
-}
-
-.tableCardWorkout table td:nth-child(3) {
-    text-align: inherit;
-}
-
-.tableCardWorkout table td:nth-child(4) {
-    text-align: inherit;
-}
-
-.tableCardWorkoutById table th {
-    text-align: justify;
-}
-
-.tableCardWorkoutById table td {
-    text-align: justify;
-}
-
-#exercisesList {
-    justify-content: center;
-    width: 400px;
-}
-
-.tableCard table th {
-    text-align: center;
-}
-
-.tableCard table th:nth-child(5) {
-    text-align: justify;
-}
-
-.tableCard table td {
-    text-align: center;
-}
-
-h1 {
-    justify-content: center;
-    display: flex;
-    margin-bottom: 40px;
-    margin-top: 10px;
-}

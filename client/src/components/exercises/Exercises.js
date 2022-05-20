@@ -2,6 +2,7 @@ import useFormExercises from "./useFormExercises";
 import { List, ListItem, ListItemText, Button, IconButton, Grid, Checkbox, FormControlLabel, Divider, Card, LinearProgress } from '@mui/material';
 import { Delete, Edit, Add } from '@mui/icons-material';
 import { useState } from 'react';
+import './Exercises.css';
 
 const Exercises = () => {
     const { error, isLoading, exercises, deleteExercise } = useFormExercises();
@@ -11,7 +12,7 @@ const Exercises = () => {
         return (<LinearProgress color="secondary" />)
     }
     if (error) {
-        return <div>There was an error: {error}</div>
+        return <h2>There was an error: {error}</h2>
     }
 
     return (
@@ -28,7 +29,7 @@ const Exercises = () => {
                         />
                     }
                 />
-                <Button sx={{ pr: 6 }} variant='fab' href={('/exercises/add')}>
+                <Button variant='fab' href={('/exercises/add')}>
                     <Add />
                 </Button>
                 <Divider />

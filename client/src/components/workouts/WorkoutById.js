@@ -1,6 +1,6 @@
 import useFormWorkoutById from "./useFormWorkoutById";
 import { Table, TableBody, TableCell, TableRow, TableHead, Button, Card, Grid, Typography, Dialog, LinearProgress, DialogContent, DialogActions, Box, DialogTitle, DialogContentText } from '@mui/material'
-import { Warning, Badge } from '@mui/icons-material';
+import { Warning } from '@mui/icons-material';
 
 const WorkoutById = () => {
   const { error, isLoading, workoutExercises, date, open, handleClose, handleClickOpen, deleteWorkout } = useFormWorkoutById()
@@ -9,7 +9,7 @@ const WorkoutById = () => {
     return (<LinearProgress color="secondary" />)
   }
   if (error) {
-    return <Grid>There was an error: {error}</Grid>
+    return <h2>There was an error: {error}</h2>
   }
   return (
     <Grid className='content'>
@@ -17,7 +17,7 @@ const WorkoutById = () => {
         <h1>
           Workouts
         </h1>
-        <Typography sx={{ mr: 2 }} align='right'>Date: {date}</Typography>
+        <Typography className='dateWorkout'>Date: {date}</Typography>
         <Table>
           <TableHead>
             <TableRow>
@@ -37,16 +37,15 @@ const WorkoutById = () => {
               </TableRow>
             ))}
           </TableBody>
-          <div style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Button variant='outlined' onClick={handleClickOpen}>Delete</Button>
+            <Button id='buttonDel' variant='outlined' onClick={handleClickOpen}>Delete</Button>
             {workoutExercises.map((workout) => (
               <Dialog
+                className='dialog'
                 open={open}
                 onClose={handleClose}
-                style={{ borderColor: 'red' }}
               >
-                <Box sx={{ borderTop: 3, color: 'red' }}>
-                  <DialogTitle sx={{ color: 'black', backgroundColor: 'gainsboro', pl: 11 }}>
+                <Box className='dialogBox'>
+                  <DialogTitle className='dialogTitle'>
                     Delete Workout
                   </DialogTitle>
                   <DialogContent>
@@ -64,8 +63,7 @@ const WorkoutById = () => {
                 </Box>
               </Dialog>
             ))}
-            <Button variant='contained' href={('/workouts')}>Back To Workouts</Button>
-          </div>
+            <Button variant='contained' id='buttonBack' href={('/workouts')}>Back To Workouts</Button>
         </Table>
       </Card>
     </Grid>

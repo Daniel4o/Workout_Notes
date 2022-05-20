@@ -1,0 +1,14 @@
+.homePage {
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    min-height: 100vh;
+   }
+
+   .footer {
+       padding-top: 12px;
+       padding-bottom: 12px;
+       padding-left: 8px;
+       padding-right: 8px;
+       margin-top: auto;
+   }

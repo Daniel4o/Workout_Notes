@@ -1,0 +1,86 @@
+h1 {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+h2 {
+    left: 50%
+}
+
+.createPage {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    padding: 20px;
+    align-items: center;
+}
+
+.createPage {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 150px;
+}
+
+.userCard {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 500px;
+}
+
+.tableCard {
+    width: 900px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.tableCard table th {
+    text-align: center;
+}
+
+.tableCard table th:nth-child(5) {
+    text-align: justify;
+}
+
+.tableCard table td {
+    text-align: center;
+}
+
+.dialog {
+    border-color: red;
+}
+
+.dialogBox{
+    border-top: 12px;
+    color: red;
+}
+
+.dialogTitle {
+    color:black;
+    background-color: gainsboro;
+    padding-left: 44px;
+}
+
+#warning {
+    margin-right: 32px;
+    padding-top: 8px;
+}
+
+tr {
+    text-align: center;
+}

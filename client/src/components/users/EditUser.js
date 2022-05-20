@@ -9,7 +9,7 @@ const EditUser = (submitForm) => {
         return (<LinearProgress color="secondary" />)
     }
     if (error) {
-        return <div>There was an error: {error}</div>
+        return <h2>There was an error: {error}</h2>
     }
 
     return (

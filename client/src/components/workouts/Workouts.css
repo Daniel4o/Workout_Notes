@@ -1,0 +1,178 @@
+h1 {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+h2 {
+    left: 50%
+}
+
+.createPageWorkout {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainerWorkout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    align-items: center;
+}
+
+.workoutCard {
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    padding-bottom: 40px;
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
+
+.content {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display:flex;
+}
+
+.tableCardWorkoutById {
+    width: 900px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.dateWorkout{
+    text-align: right;
+    margin-left: 8px;
+}
+
+.tableCardWorkoutById table th {
+    text-align: justify;
+}
+
+.tableCardWorkoutById table td {
+    text-align: justify;
+}
+
+table th:nth-child(even) {
+    background-color: black;
+    color: white
+}
+
+table th:nth-child(odd) {
+    background-color: black;
+    color: white
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f7dede;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #0c0b0c;
+    color: white;
+}
+
+.tableCardWorkout {
+    width: 900px;
+    margin-bottom: 20px;
+}
+
+.tableCardWorkout table th:nth-child(1) {
+    text-align: right;
+}
+
+.tableCardWorkout table th:nth-child(2) {
+    text-align: right;
+}
+
+.tableCardWorkout table th:nth-child(3) {
+    text-align: inherit;
+}
+
+.tableCardWorkout table th:nth-child(4) {
+    text-align: inherit;
+}
+
+.tableCardWorkout table td:nth-child(1) {
+    text-align: right;
+}
+
+.tableCardWorkout table td:nth-child(2) {
+    text-align: right;
+}
+
+.tableCardWorkout table td:nth-child(3) {
+    text-align: inherit;
+}
+
+.tableCardWorkout table td:nth-child(4) {
+    text-align: inherit;
+}
+
+tr {
+    text-align: center;
+}
+
+.dialog {
+    border-color: red;
+}
+
+.dialogBox{
+    border-top: 12px;
+    color: red;
+}
+
+.dialogTitle {
+    color:black;
+    background-color: gainsboro;
+    padding-left: 44px;
+}
+
+#warning {
+    margin-right: 32px;
+    padding-top: 8px;
+}
+
+#divider {
+    color: black;
+    border: 16px;
+    margin-top: 2px
+}
+
+#buttonAdd {
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+#buttonBack{
+    margin-top: 15px;
+    left: 20%;
+}
+
+#buttonDel{
+    margin-top: 15px;
+    left: 100%
+}
+
