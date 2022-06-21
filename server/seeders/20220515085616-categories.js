@@ -4,16 +4,16 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('categories', [{
       id: '1',
-      name: 'Legs'
+      category_name: 'Legs'
     }, {
       id: '2',
-      name: 'Chest'
+      category_name: 'Chest'
     }, {
       id: '3',
-      name: 'Back'
+      category_name: 'Back'
     }, {
       id: '4',
-      name: 'Shoulders'
+      category_name: 'Shoulders'
     }])
   },
 

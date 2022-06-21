@@ -47,9 +47,9 @@ const getExerciseNames = async () => {
         setIsLoading(false)
     }
 }
-let date = workoutById.map(workout=>workout.date)
+let date = workoutById.map(workout=>workout.date)[0]
 const workoutExercises = workoutById.map(workout=>({...workout,...exercises.find(exercise=> exercise.id === workout['workout_volume.exercise_id'])}))
-
+console.log(date)
 const handleClickOpen = () => {
     setOpen(true);
 };

@@ -44,8 +44,8 @@ const useFormAddWorkout = () => {
             const response = await fetch(`${BASE_URL}/exercises`)
             return response.json()
                 .then(data => {
-                    setExercises(data.exercises)
-                    const allExerciseNames = data.exercises.map(exercise => exercise.exercise_name).flat();
+                    setExercises(data.categoryExists)
+                    const allExerciseNames = data.categoryExists.map(exercise => exercise.exercise_name).flat();
                     setExerciseNames(allExerciseNames)
                     setError(null)
                     setIsLoading(false)
@@ -127,6 +127,7 @@ const useFormAddWorkout = () => {
                 body: JSON.stringify(data)
             }).then(() => {
                 let requests = [];
+                console.log(inputFields)
                 const submittedId = inputFields.map(exercise=> exercise.id)
                 const submittedExercises = inputFields.map(exercise => exercise.exercise.split(','))
                 const submittedSets = inputFields.map(exercise => exercise.sets.split(','))

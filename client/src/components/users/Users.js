@@ -38,7 +38,7 @@ const Users = () => {
                                 <TableRow
                                     key={user.id}
                                 >
-                                    <TableCell>{user.name}.</TableCell>
+                                    <TableCell>{user.name}</TableCell>
                                     <TableCell scope="row">{user.age}</TableCell>
                                     <TableCell >{user.height}</TableCell>
                                     <TableCell >{user.weight} </TableCell>
